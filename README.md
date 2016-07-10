@@ -66,7 +66,8 @@ or attacks.
 * 1995, https://en.wikisource.org/wiki/Executive_Order_13026
 * 2009, regulation handed to - https://en.wikipedia.org/wiki/Bureau_of_Industry_and_Security
 
-* July 2016, russian legislation - http://www.rferl.org/content/russia-putin-signs-antiterror-law/27844555.html
+* 2016 FBI vs Apple
+* July 2016, Yarovaya Law, Russian legislation - http://www.rferl.org/content/russia-putin-signs-antiterror-law/27844555.html
 
 # major players
 
@@ -85,7 +86,9 @@ or attacks.
 * https://en.wikipedia.org/wiki/FREAK
 * https://en.wikipedia.org/wiki/Nautilus_(secure_telephone) - Nautilus is a reference to a creature that can overcome a Clipper ship
 
-* encryption registration - https://www.bis.doc.gov/index.php/policy-guidance/encryption/registration
+* US encryption product registration - https://www.bis.doc.gov/index.php/policy-guidance/encryption/registration
+
+
 
 # passages
 
@@ -105,3 +108,5 @@ or attacks.
 * questions that impart real life impacts
   * your external hard drive had a master key controlled by a registry at the department of commerce
   * code for special law enforcement access into your client server protocol
+  * does your build script and deploy process involve copying your private keys to an endpoint not in your control
+  * your company spending thousands of dollars on storage for intrusive logs that have no technical benefit
