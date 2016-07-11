@@ -3,7 +3,7 @@ notes for my cascadiafest 2016 talk
 
 # Thesis
 
-Strong encryption is enabled by default in many computer products, hardware and software.  Advances in computing power and communications availability have tipped the scales back towards the masses.  The 2016 version of the response by those in power mirrors the attempts to subvert encryption in the early 1990's and in the 1970's.
+Strong encryption is enabled by default in many computer products, both in hardware and software services.  Advances in computing power and communications availability have tipped the scales of privacy and security towards the masses instead of it resting in the hands of a few secretive government agencies.  The current version of the response by those in power mirrors the attempts to subvert access to encryption in the 1970s and in the 1990s.
 
 
 # UN Declaration of Human Rights
@@ -32,19 +32,28 @@ or attacks.
 * properly connecting cryptographic primitives
   * widespread modern implementations
     * network: tls/ssl, iMessage/iCloud, pgp key servers, off the record, signal, end-to-end
-    * hardware: harddrive encryption, microsoft
+    * hardware: HDD encryption, microsoft
+    * software: signed binaries
 * notable algorithms
   * Diffie-Hellman key exchange
   * RSA
   * DES, AES
 
+## specific topics
+
+### one way functions
+
+
+
 
 
 ### who is behind the topics discussed
 
-### what forces were involved in preventing the success or creation of the topic
+### what forces were involved in fighting encryption
 
-* clipper chip - https://en.wikipedia.org/wiki/Clipper_chip
+* 1975, NSF officials were warned that they could be breaking the law by funding cryptography research, as only the NSA has the authority to decide who and what receives funding
+* 1977 July 7, Letter arrives at the IEEE offices in NY warning them that they have been publishing information that could lead to the creation of items banned by ITAR as "privacy devices" and they are in fact "restricted weapons".  Attached were copies of the relevant pages of the arms treaty.  The letter also mentioned an upcoming conference they were planning at Cornell
+* 199x, clipper chip - https://en.wikipedia.org/wiki/Clipper_chip
   * https://en.wikipedia.org/wiki/Key_escrow
 
 
@@ -65,8 +74,7 @@ or attacks.
 * 1991, pgp released with source code
 * 1995, https://en.wikisource.org/wiki/Executive_Order_13026
 * 2009, regulation handed to - https://en.wikipedia.org/wiki/Bureau_of_Industry_and_Security
-
-* 2016 FBI vs Apple
+* 2016, FBI vs Apple
 * July 2016, Yarovaya Law, Russian legislation - http://www.rferl.org/content/russia-putin-signs-antiterror-law/27844555.html
 
 # major players
@@ -104,9 +112,8 @@ or attacks.
 
 * Cryptography is inherently adversarial.  The relationship between the participants in the discussion and possible eavesdroppers.  The server and client challenge and verify the authenticity of each other.
 * Browser makers are human rights campaigners.  The SSL warning is about state actors.
-
 * questions that impart real life impacts
-  * your external hard drive had a master key controlled by a registry at the department of commerce
-  * code for special law enforcement access into your client server protocol
-  * does your build script and deploy process involve copying your private keys to an endpoint not in your control
+  * your external hard drive shipped with a master key controlled by a registry at the department of commerce
+  * link a black box library that provides special law enforcement access into your client server protocol
+  * do your build and deploy processes involve copying your private keys to an endpoint not in your control
   * your company spending thousands of dollars on storage for intrusive logs that have no technical benefit
