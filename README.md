@@ -5,6 +5,9 @@ notes for my cascadiafest 2016 talk
 
 Strong encryption is enabled by default in many computer products, both in hardware and software services.  Advances in computing power and communications availability have tipped the scales of privacy and security towards the masses instead of it resting in the hands of a few secretive government agencies.  The current version of the response by those in power mirrors the attempts to subvert access to encryption in the 1970s and in the 1990s.
 
+## Limitations / Focus
+
+* America centric,
 
 # UN Declaration of Human Rights
 ```
@@ -52,7 +55,12 @@ or attacks.
 ### what forces were involved in fighting encryption
 
 * 1975, NSF officials were warned that they could be breaking the law by funding cryptography research, as only the NSA has the authority to decide who and what receives funding
-* 1977 July 7, Letter arrives at the IEEE offices in NY warning them that they have been publishing information that could lead to the creation of items banned by ITAR as "privacy devices" and they are in fact "restricted weapons".  Attached were copies of the relevant pages of the arms treaty.  The letter also mentioned an upcoming conference they were planning at Cornell
+* 1977 July 7, Letter arrives at the IEEE offices in NY warning them that they have been publishing information that could lead to the creation of items banned by ITAR as "privacy devices" and they are in fact "restricted weapons".  Attached were copies of the relevant pages of the arms treaty.  The letter also mentioned an upcoming conference they were planning at Cornell could be illegal.  MIT asked their researchers to stop sending the paper out, but professors with tenure at Stanford were able to speak with impunity on behalf of students who were just getting started.  Once the behavior of the NSA was scrutinized they backed off because they had no grounds in the law.  Their last threat was "Well I guess we'll have to get the law changed."
+* 1977 October, an EE professor George Davida applied for a patent for a device that used math to produce stream ciphers.  He didn't use classified material.  The patent was filed in the name of the University of Wisconsin Alumni Research Foundation meaning the money from the invention would go to the university.  The next time he heard from the government was a secrecy order and a threat of a $10,000 fine and 2 years in jail.  He and another person who created a voice scrambling phone that also got the same secrecy order went public.  Through their representatives they were able to get the NSA to back down.  April 28 the order was issued, rescinded on June 13.
+* 1978, NSA tampers with the NSF funding proposals, taking over the funding of proposals that deal with cryptography
+* 1978 May 11, The White House science advisor asked the justice department to provide a legal ruling if the ITAR restrictions violated the first amendment, and it was found that ITAR was unconstituional
+*
+
 * 199x, clipper chip - https://en.wikipedia.org/wiki/Clipper_chip
   * https://en.wikipedia.org/wiki/Key_escrow
 
