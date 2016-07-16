@@ -1,0 +1,19 @@
+{
+  "name": "cascadia_fest_2016_talk",
+  "version": "1.0.0",
+  "description": "notes for my cascadiafest 2016 talk",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/billautomata/cascadia_fest_2016_talk.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/billautomata/cascadia_fest_2016_talk/issues"
+  },
+  "homepage": "https://github.com/billautomata/cascadia_fest_2016_talk#readme"
+}

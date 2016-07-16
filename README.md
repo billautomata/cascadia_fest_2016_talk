@@ -44,11 +44,9 @@ or attacks.
 
 ## specific topics
 
+
+
 ### one way functions
-
-
-
-
 
 ### who is behind the topics discussed
 
@@ -59,7 +57,9 @@ or attacks.
 * 1977 October, an EE professor George Davida applied for a patent for a device that used math to produce stream ciphers.  He didn't use classified material.  The patent was filed in the name of the University of Wisconsin Alumni Research Foundation meaning the money from the invention would go to the university.  The next time he heard from the government was a secrecy order and a threat of a $10,000 fine and 2 years in jail.  He and another person who created a voice scrambling phone that also got the same secrecy order went public.  Through their representatives they were able to get the NSA to back down.  April 28 the order was issued, rescinded on June 13.
 * 1978, NSA tampers with the NSF funding proposals, taking over the funding of proposals that deal with cryptography
 * 1978 May 11, The White House science advisor asked the justice department to provide a legal ruling if the ITAR restrictions violated the first amendment, and it was found that ITAR was unconstituional.  The NSA persisted.
-* 1979 January, First public address by the NSA director about the NSA mission.  A PR push saying that reality is in fact flipped upside-down and the NSA does not have too much influence, but far too little.  The problem was that there were no laws granting it the power it had been wielding up until that point.  The real victim was not free speech, but national security.  Their proposed solution: "Trust us to operate in secret with unlimited power over things we decide are ours."  Academia laughed that off, and special ironclad provisions were added to ITAR saying that dissemination of research was exempted.  Patents could now be issued which meant that business investment was easier to come by, and products with built in encryption could be developed and sold.
+* 1979 January, First public address by the NSA director about the NSA mission.  A PR push saying that reality is in fact flipped upside-down and the NSA actually has far too little influence.  The problem was that there were no laws granting it the power it had been wielding up until that point.  The real victim was not free speech, but national security.  Their proposed solution: "Trust us to operate in secret with unlimited power over things we decide are ours."  Academia laughed that off, and special ironclad provisions were added to ITAR saying that dissemination of research was exempted.  Patents could now be issued which meant that business investment was easier to come by, and products with built in encryption could be developed and sold.
+* 1980s, the effort for encryption was now focused on putting the algorithm on a chip, and the effort to stop encryption focused on stopping the export of the product
+
 
 * 199x, clipper chip - https://en.wikipedia.org/wiki/Clipper_chip
   * https://en.wikipedia.org/wiki/Key_escrow
@@ -125,3 +125,4 @@ or attacks.
   * link a black box library that provides special law enforcement access into your client server protocol
   * do your build and deploy processes involve copying your private keys to an endpoint not in your control
   * your company spending thousands of dollars on storage for intrusive logs that have no technical benefit
+  * how would you feel if you passed as an argument the number 2048 into a function it triggered an API call to the NSA to deliver a piece of data you couldn't read, but if you put 1024 in the same spot, nothing happened
