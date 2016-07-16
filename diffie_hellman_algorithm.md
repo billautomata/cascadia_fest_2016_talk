@@ -38,8 +38,8 @@ const crypto = require('crypto');
 const alice = crypto.createDiffieHellman(2048);
 const alice_key = alice.generateKeys();
 
-alice.getPrime()       // p
-alice.getGenerator()   // g
-alice.getPublicKey()   // a
-alice.getPrivateKey()  // x
+alice_key.getPublicKey()   // a
+alice_key.getGenerator()   // g
+alice_key.getPrivateKey()  // x
+alice_key.getPrime()       // p
 ```
