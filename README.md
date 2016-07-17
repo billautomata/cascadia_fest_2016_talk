@@ -29,9 +29,9 @@ or attacks.
 * asymmetric encryption
   * one way functions
   * elliptic curves
-* symmetric encryption
+* symmetric encryption,
   * ciphers
-  * shuffle & substitution tables
+  * shuffle & substitution tables, https://en.wikipedia.org/wiki/Substitution-permutation_network
 * properly connecting cryptographic primitives
   * widespread modern implementations
     * network: tls/ssl, iMessage/iCloud, pgp key servers, off the record, signal, end-to-end
@@ -40,7 +40,6 @@ or attacks.
 * notable algorithms
   * Diffie-Hellman key exchange
   * RSA
-  * DES, AES
 
 ## specific topics
 

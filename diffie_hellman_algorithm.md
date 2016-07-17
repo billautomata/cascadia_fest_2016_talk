@@ -18,10 +18,10 @@
 
 #### how is it secure?
 A = (g ^ x) mod p
-Given A, g, and p: solve for x.  Answer: You can't really.  
+Given A, g, and p: solve for x.  Answer: You can't.  
 
-#### how can you screw it up?
-Use bad numbers of g and p.  
+#### how can you really screw it up?
+Use bad numbers of g and p can lead to more than one value of x, specifically a very small one.
 
 #### what does a brute force attack look like?
 pre-compute all the values for (x > a) for the diffie hellman groups (g, p)
@@ -36,6 +36,7 @@ const crypto = require('crypto');
 
 // Generate Alice's keys...
 const alice = crypto.createDiffieHellman(2048);
+// or const alice = crypto.getDiffieHellman('modp14');
 const alice_key = alice.generateKeys();
 
 alice_key.getPublicKey()   // a

@@ -25,4 +25,7 @@ signature = encrypt(hash(plain_text))
 hash(plain_text) = decrypt(signature)
 
 #### how is it secure?
-The only way to derive D from (E, N) is to factor N, and since P and Q are both prime numbers there are no simpler factors, so there are just two factors, P and Q.  The most efficient algorithm is [General Number Field Sieve](https://en.wikipedia.org/wiki/General_number_field_sieve)
+The only way to derive D from (E, N) is to factor N, but since P and Q are both prime numbers there are no simpler factors. N should have just two factors, P and Q.  
+
+
+The most efficient algorithm is [General Number Field Sieve](https://en.wikipedia.org/wiki/General_number_field_sieve)
