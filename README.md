@@ -9,6 +9,23 @@ Strong encryption is enabled by default in many computer products, both in hardw
 
 * America centric,
 
+## broad outline
+* algorithm fundamentals
+  * symmetric vs public key
+  * gluing together primitives
+  * popular implementations  
+  * node.js API tour
+* history
+  * 1900s - 1970, pre-history to des
+  * 1970s, diffie hellman / rsa
+  * 1980s, selling software and chips - lotus notes
+  * 1990s, distributing free software - pgp
+  * 2000s, clipper chip
+  * 2010s, NSA & state actors
+  * 2020s, quantum?
+
+* current and upcoming threats
+
 # UN Declaration of Human Rights
 ```
 Article 12.
