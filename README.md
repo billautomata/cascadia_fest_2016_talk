@@ -19,7 +19,6 @@ Everyone has the right to the protection of the law against such interference
 or attacks.
 ```
 
-
 # topics
 
 ### how does modern encryption work
@@ -41,14 +40,6 @@ or attacks.
   * Diffie-Hellman key exchange
   * RSA
 
-## specific topics
-
-
-
-### one way functions
-
-### who is behind the topics discussed
-
 ### what forces were involved in fighting encryption
 
 * 1975, NSF officials were warned that they could be breaking the law by funding cryptography research, as only the NSA has the authority to decide who and what receives funding
@@ -63,26 +54,6 @@ or attacks.
 * 199x, clipper chip - https://en.wikipedia.org/wiki/Clipper_chip
   * https://en.wikipedia.org/wiki/Key_escrow
 
-
-# encryption's effects on political history, timeline
-
-> #### https://en.wikipedia.org/wiki/Timeline_of_cryptography
-
-* 1917, https://en.wikipedia.org/wiki/Zimmermann_Telegram
-  * https://en.wikipedia.org/wiki/Room_40  
-* 1943, https://en.wikipedia.org/wiki/Colossus_computer
-  * https://en.wikipedia.org/wiki/Cryptanalysis_of_the_Lorenz_cipher
-* 1949, https://en.wikipedia.org/wiki/Communication_Theory_of_Secrecy_Systems
-* 1951, NSA Founded
-* 1951, https://en.wikipedia.org/wiki/KL-7 rotor machine
-* 1975, https://en.wikipedia.org/wiki/Data_Encryption_Standard
-* 1977, RSA invented, https://en.wikipedia.org/wiki/RSA_(cryptosystem)#History
-*
-* 1991, pgp released with source code
-* 1995, https://en.wikisource.org/wiki/Executive_Order_13026
-* 2009, regulation handed to - https://en.wikipedia.org/wiki/Bureau_of_Industry_and_Security
-* 2016, FBI vs Apple
-* July 2016, Yarovaya Law, Russian legislation - http://www.rferl.org/content/russia-putin-signs-antiterror-law/27844555.html
 
 # major players
 
@@ -102,8 +73,6 @@ or attacks.
 * https://en.wikipedia.org/wiki/Nautilus_(secure_telephone) - Nautilus is a reference to a creature that can overcome a Clipper ship
 
 * US encryption product registration - https://www.bis.doc.gov/index.php/policy-guidance/encryption/registration
-
-
 
 # passages
 
