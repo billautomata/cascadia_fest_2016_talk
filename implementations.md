@@ -8,6 +8,9 @@
 * https://en.wikipedia.org/wiki/Multi-factor_authentication
 * https://en.wikipedia.org/wiki/Time-based_One-time_Password_Algorithm
 
+## pgp
+
+
 ## ssh
 * `ssh keygen` creates an RSA key
 * login is a digital signature created by the client from a random challenge from the server
@@ -26,4 +29,4 @@
 
 ## Signal / End-to-End
 * advanced version of OTR that uses a mix of ephemeral keys and a Key Derivation Function applied to a running key so each party doesn't need to have gotten all the messages in order.
-* End-to-End encryption means the
+* End-to-End encryption means the private key remains on the client and only encrypted messages are ever transmitted.  The server does not handle the encryption, it is just a dumb pipe.  It is possible to encrypt the private key using AES and a pass-phrase, then the server can distribute to multiple devices unlocked by re-entering the pass-phrase.
