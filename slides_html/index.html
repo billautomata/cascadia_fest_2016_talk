@@ -146,7 +146,9 @@
 					<h3>1949 - 1970</h3>
 					<aside class='notes'>
 						The NSA is feeling good.
-						Anyone who wants to work on codes goes and works for them.
+						Anyone who wants to work on cryptography goes and works for them.
+						They control the funding mechanisms for cryptography.
+						They can also delcare patent applicaitons to be classified in the name of national security.
 						All the knowledge is kept by them behind the triple-fence.
 					</aside>
 				</section>
@@ -155,8 +157,10 @@
 					<h1>&nbsp</h1>
 					<h1>&nbsp</h1>
 					<h1>&nbsp</h1>
-					<h1>wire transfers</h1>
-					<aside class='notes'></aside>
+					<h1>commerce</h1>
+					<aside class='notes'>
+						What broke the calm was the demand by commerce for a way to perform secure wire transfers.
+					</aside>
 				</section>
 
 				<section data-background-image='img/burns_float.gif'>
@@ -165,18 +169,91 @@
 					<h1>&nbsp</h1>
 					<h1>DES</h1>
 					<aside class='notes'>
+						In 1975 we get DES.
 						DES is the first serious attempt at a widespread standard for data security.
-						It was successfully impelmented in chip form which made it easy to sell and use.
-						It was also approved by the NSA who designed the S-Box utilized in the cipher.
+						It was successfully impelmented in chip, which made it easy to sell and use.
+						It was also approved by the NSA who designed the S-Boxes utilized in the cipher.  We'll get to what an S-Box is in a few slides.
 					</aside>
 				</section>
 
 				<section>
 					<h3>symmetric cryptography</h3>
 					<aside class='notes'>
-
+						Symmetric encryption is the easy to understand type of encryption.
+						You have a key and an scrambling algorithm that you apply to your data to obscure it.
+						The recipient takes the same key and a reverse process to unscramble the data.
+						If you can keep the key secret, this works really well.
 					</aside>
 				</section>
+
+				<section data-background-image='img/homer_typing_bed.gif'>
+					<h1>&nbsp</h1>
+					<pre><code class='hljs'>
+  const c = require('crypto')	// es6... (e_e)
+  c.getCiphers()
+
+  // (partial results)
+
+	[ "aes128","aes192","aes256","blowfish",
+	 "camellia128","camellia192","camellia256","cast",
+	 "des","des3","desx","idea","rc2","rc2-40-cbc",
+	 "rc2-64-cbc","rc4","rc4-40","seed" ]
+
+					</code></pre>
+					<aside class='notes'>
+						DES is still around.
+						You can find it and other symmetric ciphers by running getCiphers()
+						This functionality is available to node because we link OpenSSL during compilation.
+						Node crypto is powered by openssl.
+					</aside>
+				</section>
+
+
+				<section data-background-image='img/burns_phone.gif'>
+					<h1>secure telephony</h1>
+					<aside class='notes'>
+						IBM needed a way for their mainframes to talk to one another in a secure way.
+						They also needed a way to store information at rest.
+						Their researchers with the assistance of the NSA succeded in their task.
+						They took a fixed block of bytes (block cipher), and performed multiple rounds of permutations.
+						These permutations take the form of a fixed shuffle procdure after each round of subsitituions.
+					</aside>
+				</section>
+
+				<section>
+					<h1>s-box</h1>
+					<img src='img/s-box.png'></img>
+					<aside class='notes'>
+						This is the hardest to understand part of modern symmetric encryption.
+						Each round of encryption you take each byte, and perform a lookup operation with pairs of them.
+						The value of your bytes are the indexes, and the entry is the output value.
+						Your chunk is 68. Go find (6, 8) > 45.  Now next round your chunk is 45.
+						Do that 12 or 16 times comebined with a shuffle operation and you have the makings of a strong block cipher.
+						These s-boxes are hardcoded, and the values in the s-boxes are what makes them strong.
+						The NSA provided the s-boxes for DES.
+						Since the operation is so complex there is no way to verify that there is no hidden trap door in the s-box that the NSA knows how to exploit to reduce the strength of the scrambling.
+						Does the NSA have a special set of decoder s-boxes that allow them to more quickly guess your key?
+					</aside>
+				</section>
+
+				<section data-background-image='img/burns_float.gif'>
+					<h1></h1>
+					<aside class='notes'>
+					</aside>
+				</section>
+
+				<section data-background-image='img/burns_float.gif'>
+					<h1></h1>
+					<aside class='notes'>
+					</aside>
+				</section>
+
+				<section data-background-image='img/burns_float.gif'>
+					<h1></h1>
+					<aside class='notes'>
+					</aside>
+				</section>
+
 
 
 			</div>
@@ -190,6 +267,7 @@
 			// More info https://github.com/hakimel/reveal.js#configuration
 			Reveal.initialize({
 				history: true,
+
 
 				// More info https://github.com/hakimel/reveal.js#dependencies
 				dependencies: [
