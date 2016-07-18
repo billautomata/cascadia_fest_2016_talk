@@ -143,7 +143,7 @@
 				</section>
 
 				<section data-background-image='img/burns_snake.gif'>
-					<h3>1949 - 1970</h3>
+					<h3>1951 - 1970</h3>
 					<aside class='notes'>
 						The NSA is feeling good.
 						Anyone who wants to work on cryptography goes and works for them.
@@ -236,8 +236,21 @@
 					</aside>
 				</section>
 
-				<section data-background-image='img/burns_float.gif'>
-					<h1>DES</h1>
+				<section>
+<pre><code class='hljs'>// des example
+var crypto = require('crypto'); var assert = require('assert')
+var key = 'p4ssw0rd'; var message = 'hello cascadiafest!'
+// encrypt
+var cipher = crypto.createCipher('des', key)
+var cipher_text = cipher.update(message, 'utf8', 'hex')
+cipher_text += cipher.final('hex')
+// decrypt
+var decipher = crypto.createDecipher('des', key)
+var plain_text = decipher.update(cipher_text, 'hex', 'utf8')
+plain_text += decipher.final('utf8')
+
+assert.equal(plain_text, message)
+</code></pre>
 					<aside class='notes'>
 						So back to DES... it was a hit, we still use a version of it today.
 						Even thoug the NSA reduced the key size in their recommendation, it was secure and widespread.
@@ -255,7 +268,7 @@
 					</aside>
 				</section>
 
-				<section data-background-image='img/burns_float.gif'>
+				<section data-background-image='img/homer_rasta_walk.gif'>
 					<h1></h1>
 					<aside class='notes'>
 					</aside>
