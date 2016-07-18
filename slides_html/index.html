@@ -215,8 +215,8 @@
 						IBM needed a way for their mainframes to talk to one another in a secure way.
 						They also needed a way to store information at rest.
 						Their researchers with the assistance of the NSA succeded in their task.
-						They took a fixed block of bytes (block cipher), and performed multiple rounds of permutations.
-						These permutations take the form of a fixed shuffle procdure after each round of subsitituions.
+						They created a block-cipher which took a fixed block of bytes, and performed multiple rounds of permutations.
+						These permutations take the form of a fixed shuffle procedure after each round of substitutions.
 					</aside>
 				</section>
 
@@ -225,7 +225,7 @@
 					<img src='img/s-box.png'></img>
 					<aside class='notes'>
 						This is the hardest to understand part of modern symmetric encryption.
-						Each round of encryption you take each byte, and perform a lookup operation with pairs of them.
+						Each round of encryption you take a chunk of bytes, and perform a lookup operation with the values.
 						The value of your bytes are the indexes, and the entry is the output value.
 						Your chunk is 68. Go find (6, 8) > 45.  Now next round your chunk is 45.
 						Do that 12 or 16 times comebined with a shuffle operation and you have the makings of a strong block cipher.
@@ -237,6 +237,31 @@
 				</section>
 
 				<section data-background-image='img/burns_float.gif'>
+					<h1>DES</h1>
+					<aside class='notes'>
+						So back to DES... it was a hit, we still use a version of it today.
+						Even thoug the NSA reduced the key size in their recommendation, it was secure and widespread.
+						It put cryptography outside of the realm of the military and spies.
+					</aside>
+				</section>
+
+				<section data-background-image='img/homer_jug_thinking.gif'>
+					<h1>late 1970s</h1>
+					<h1><br><br><br><br></h1>
+					<aside class='notes'>
+						This got everyone thinking hard about everything to do with codes and ciphers.
+						With Diffie and Martin Hellman published a seminal paper on public key cryptography.
+						RSA was invented.
+					</aside>
+				</section>
+
+				<section data-background-image='img/burns_float.gif'>
+					<h1></h1>
+					<aside class='notes'>
+					</aside>
+				</section>
+
+				<section data-background-image='img/burns_float.gif'>
 					<h1></h1>
 					<aside class='notes'>
 					</aside>
@@ -254,6 +279,23 @@
 					</aside>
 				</section>
 
+				<section data-background-image='img/burns_float.gif'>
+					<h1></h1>
+					<aside class='notes'>
+					</aside>
+				</section>
+
+				<section data-background-image='img/burns_float.gif'>
+					<h1></h1>
+					<aside class='notes'>
+					</aside>
+				</section>
+
+				<section data-background-image='img/burns_float.gif'>
+					<h1></h1>
+					<aside class='notes'>
+					</aside>
+				</section>
 
 
 			</div>
