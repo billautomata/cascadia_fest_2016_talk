@@ -14,6 +14,9 @@
 * 1977, RSA invented, https://en.wikipedia.org/wiki/RSA_(cryptosystem)#History
 * 1982, RSA Security Founded
 * 1987, RSA invents RC-2 for Lotus to replace DES for export, written specifically for the NSA
+* 1987, Rupert Murdoch in a bid to buy RSA
+* 1989, Lotus Notes 1.0 with RSA launches
+* 1990, Defense Department buys RSA license
 
 
 * 1991, pgp released with source code
