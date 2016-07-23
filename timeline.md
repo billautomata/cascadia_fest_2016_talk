@@ -16,10 +16,12 @@
 * 1987, RSA invents RC-2 for Lotus to replace DES for export, written specifically for the NSA
 * 1987, Rupert Murdoch in a bid to buy RSA
 * 1989, Lotus Notes 1.0 with RSA launches
-* 1990, Defense Department buys RSA license
+* 1990, Defense Department buys RSA license, against the wishes of the NSA
+*
 
 
 * 1991, pgp released with source code
+  * first posted on PeaceNet, an ISP that specialized in grassroots political organizations
 * 1995, https://en.wikisource.org/wiki/Executive_Order_13026
 
 * 2009, regulation handed to - https://en.wikipedia.org/wiki/Bureau_of_Industry_and_Security
