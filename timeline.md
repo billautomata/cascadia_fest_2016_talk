@@ -12,6 +12,8 @@
 
 * 1975, https://en.wikipedia.org/wiki/Data_Encryption_Standard
 * 1977, RSA invented, https://en.wikipedia.org/wiki/RSA_(cryptosystem)#History
+* 1982, RSA Security Founded
+* 1987, RSA invents RC-2 for Lotus to replace DES for export, written specifically for the NSA
 
 
 * 1991, pgp released with source code

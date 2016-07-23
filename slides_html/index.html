@@ -82,17 +82,6 @@
 					</aside>
 				</section>
 
-				<section style='font-family: monospace;'>
-					<h2>**** - 1949</h2>
-					<h2>1949 - 1970</h2>
-					<h2>1970 - 1980</h2>
-					<h2>1980 - 1990</h2>
-					<h2>1990 - 2000</h2>
-					<h2>2000 - 2010</h2>
-					<h2>2010 - ****</h2>
-					<aside class='notes'></aside>
-				</section>
-
 				<section data-background-image='img/no_idea_what_im_doing.jpg'>
 					<h1>**** - 1949</h1>
 					<h1>&nbsp</h1>
@@ -101,7 +90,7 @@
 					<h2>I have no idea what I'm doing</h2>
 					<aside class='notes'>
 						<p>early crypto is a grab bag of garbage and dumpster fires</p>
-						<p>nearly every system fell flat on it's face until we had a good idea of information theory, and that didn't arrive until 1949</p>
+						<p>nearly every system fell flat on it's face as they all contained one or more obvious fatal flaws</p>
 					</aside>
 				</section>
 
@@ -263,32 +252,106 @@ assert.equal(plain_text, message)
 					<h1><br><br><br><br></h1>
 					<aside class='notes'>
 						This got everyone thinking hard about everything to do with codes and ciphers.
-						With Diffie and Martin Hellman published a seminal paper on public key cryptography.
-						RSA was invented.
+
 					</aside>
 				</section>
 
 				<section data-background-image='img/homer_rasta_walk.gif'>
-					<h1></h1>
+					<h1>1976</h1>
+					<aside class='notes'>
+						With Diffie and Martin Hellman published a seminal paper on public key cryptography.
+
+					</aside>
+				</section>
+
+				<section>
+					<h1>asymmetric encryption</h1>
 					<aside class='notes'>
 					</aside>
 				</section>
 
-				<section data-background-image='img/burns_float.gif'>
-					<h1></h1>
+				<section>
+					<h1>one way functions</h1>
 					<aside class='notes'>
 					</aside>
 				</section>
 
-				<section data-background-image='img/burns_float.gif'>
-					<h1></h1>
+				<section>
+					<h1>given, a = b + c</h1>
+					<h1>b = a - c</h1>
+					<h1>c = a - b</h1>
+					<h3>easy</h3>
 					<aside class='notes'>
 					</aside>
 				</section>
 
-				<section data-background-image='img/burns_float.gif'>
-					<h1></h1>
+				<section>
+					<h1>a<sup>x</sup> = c</h1>
+					<h3>given A and C</h3>
+					<h3>solve for X</h3>
+					<h1>not easy</h1>
 					<aside class='notes'>
+					</aside>
+				</section>
+
+				<section>
+					<h5>diffie-hellman key exchange</h5>
+					<h1>public = g<sup>x</sup> mod p</h1>
+					<h3>choose a large X</h3>
+					<h3>it is your secret</h3>
+					<aside class='notes'>
+					</aside>
+				</section>
+
+				<section>
+					<h1 style='color: rgb(33,66,255);'>pub1 = <span style='color: white;'>g</span><sup>x</sup><span style='color: white;'> mod p</span></h1>
+					<h1 style='color: rgb(33, 255, 66);'>pub2 = <span style='color: white;'>g</span><sup>y</sup><span style='color: white;'> mod p</span></h1>
+					<h1>
+					<span style='color: rgb(33, 255, 66);'>pub2</span>
+					<sup style='color: rgb(33,66,255);'>x</sup>
+					<span style='color: white'>mod p = </span>
+					<span style='color: rgb(255,66,33)';>c</h1>
+					<h1>
+						<span style='color: rgb(33,66,255);'>pub1</span>
+						<sup style='color: rgb(33,255,66);'>y</sup>
+						<span style='color: white;'>mod p =</span>
+						<span style='color: rgb(255,66,33)';>c
+					</h1>
+					<aside class='notes'>
+					</aside>
+				</section>
+
+				<section>
+					<h1>a = g<sup>x</sup> mod p</h1>
+<pre><code class='hljs'>// a = (g ^ x) mod p
+const crypto = require('crypto');
+
+// Generate Alice's keys...
+const alice = crypto.createDiffieHellman(2048);
+// or const alice = crypto.getDiffieHellman('modp14');
+const alice_key = alice.generateKeys();
+
+alice_key.getPublicKey()   // a
+alice_key.getGenerator()   // g
+alice_key.getPrivateKey()  // x
+alice_key.getPrime()       // p
+</code></pre>
+					<aside class='notes'>
+					</aside>
+				</section>
+
+
+				<section data-background-image='img/burns_float.gif'>
+					<h1>1977</h1>
+					<aside class='notes'>
+						RSA was invented.
+					</aside>
+				</section>
+
+				<section data-background-image='img/burns_float.gif'>
+					<h1>1982</h1>
+					<aside class='notes'>
+						RSA founded
 					</aside>
 				</section>
 
