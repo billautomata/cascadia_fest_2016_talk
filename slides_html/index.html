@@ -320,7 +320,7 @@ assert.equal(plain_text, message)
 	<aside class='notes'>
 		this is an issue when your equations look like this
 		that exponent really complicates matters
-		there isn't an efficient one-step solution to this problem 
+		there isn't an efficient one-step solution to this problem
 	</aside>
 </section>
 
@@ -332,6 +332,7 @@ assert.equal(plain_text, message)
 	<h3>it is your secret</h3>
 	<aside class='notes'>
 		there were a few others in the running, but the propsal that caught on is called the diffie hellman key exchange
+		it defines
 	</aside>
 </section>
 
@@ -347,7 +348,6 @@ assert.equal(plain_text, message)
 	<aside class='notes'>
 	</aside>
 </section>
-
 
 <section>
 	<h1><span style='color: white;'>g</span><sup style='color: rgb(33,66,255);'>x</sup><span style='color: white;'> mod p</span> = <span style='color: rgb(33,66,255);'>pub1</span></h1>
@@ -408,7 +408,9 @@ alice_key.getPrime()       // p
 	<h1>rsa 1977</h1>
 	<h1>(dsa 1991)</h1>
 	<aside class='notes'>
-		RSA was invented.
+		After the Diffie Hellman key exchange paper was published, the RSA algorithm was published.
+		RSA took DH a few steps further beyond key generation and exchange protocol.
+		It also defined an encryption and decryption mechanism.
 	</aside>
 </section>
 
@@ -419,7 +421,9 @@ alice_key.getPrime()       // p
 	<h1>RSA Security Inc</h1>
 	<h1>founded, 1982</h1>
 	<aside class='notes'>
-		RSA founded to commercialize public key encryption
+		RSA founded to commercialize public key encryption.
+		They negotiated use of the patent from MIT and set to work.
+		Note: The patent on RSA expired in september of 2000.
 	</aside>
 </section>
 
@@ -427,11 +431,11 @@ alice_key.getPrime()       // p
 <h1>1983</h1>
 	<h1>hardware company</h1>
 	<aside class='notes'>
-		Public-Key encryption is college level math.
+		They had a problem.
 		People have to understand how it works in order to trust it.
-		Symmteric is easy, a key locks and unlocks a door.
-		But understanding that your key becomes a different key when you use it
-		in someone elses lock, that's really difficult to understand how that works.
+		Symmteric encryption is easy, a key locks and unlocks a door.
+		Asymmetric encryption is college level math.
+		Understanding that your key becomes a different key when you use it in someone elses lock, that's really difficult to understand how that works.
 		Also you have two keys now... RSA wanted to simpifly things.  Put it on a chip.
 		It didn't work.
 	</aside>
