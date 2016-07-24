@@ -376,6 +376,7 @@ alice_key.getPrime()       // p
 <section data-background-image='img/kids_fruit_race.gif'>
 	<h1>diffie-hellman 1976</h1>
 	<h1>rsa 1977</h1>
+	<h1>(dsa 1991)</h1>
 	<aside class='notes'>
 		RSA was invented.
 	</aside>
@@ -438,7 +439,7 @@ alice_key.getPrime()       // p
 	<h3><span style='color: rgb(255,255,66);'>hash</span>( <span style='color: rgb(33,255,66);'>msg</span> ) = <span style='color: rgb(255,188,255);'>decrypt</span> ( <span style='color: rgb(33,66,255);'>signature</span> )</h3>
 	<aside class='notes'>
 		Another feature of RSA is the signature and verification routines.
-		I can prove I sent an email by taking the contents, hashing them, then encyrpting the hash with my private key.
+		I can prove I sent an email by taking the contents, hashing them, then encrypting the hash with my private key.
 		You can take my public key and decrypt the hash and compare it with a hash you create of the message contents.
 		If the decrypted hash, and your calculated hash mapped you can know that only the person with the private key signed this message.
 	</aside>
@@ -448,24 +449,151 @@ alice_key.getPrime()       // p
 	<h1>1989</h1>
 	<h1>lotus notes</h1>
 	<aside class='notes'>
-		RSA is licensed to be used in Lotus Notes.  They wanted to use a combination of RSA for the
+		RSA is licensed to be used in Lotus Notes.  They wanted to use a combination
+		of RSA and DES for the encryption but the NSA would not allow them to export DES.
+		So the RSA people invented the RC-2 cipher at two strengths, 64bit and 40 bit.
 	</aside>
 </section>
 
 
-<section data-background-image='img/burns_float.gif'>
+<section data-background-image='img/homer_snakes_box.gif'>
+	<h1>1991</h1>
+	<h1>pgp</h1>
+	<aside class='notes'>
+		pgp version 1.0 released using a combination of RSA and a symmetric cipher
+		called bassomatic
+		yes from the saturday night live sketch
+	</aside>
+</section>
+
+<section data-background-image='img/International_Data_Encryption_Algorithm_InfoBox_Diagram.svg.png'>
+	<h1>&nbsp</h1>
+	<h1>1992, pgp v2</h1>
+	<aside class='notes'>
+		version 2 used stronger RSA keys and a new symmetric cipher called idea
+		or international data encryption algorithm that used a 128 bit key
+	</aside>
+</section>
+
+<section data-background-image='img/bart_lisa_fighting.gif'>
+	<h1>1993</h1>
+	<aside class='notes'>
+		in 1993 RSA security reports the PGP creators to the us export and customs for violating the rsa patent
+	</aside>
+</section>
+
+<section data-background-image='img/homer_money_thinking.gif'>
+	<h1></h1>
+	<aside class='notes'>
+		he then sells pgp to a company that owns a license for RSA
+	</aside>
+</section>
+
+<section data-background-image='img/homer_end_is_near.gif'>
+	<aside class='notes'>
+		but just a month later the San Jose customs office opens up a formal criminal investigation
+		regarding the illegal export of a munitions without a license
+		then in 1997 the case closes with no charges filed
+		it's all just threats
+	</aside>
+</section>
+
+<section data-background-image='img/burns_alien.gif'>
+	<h1>key escrow</h1>
+	<aside class='notes'>
+		so the whole time they are investigating email and software people for their
+		strong encryption the government is pushing their solution for all this mess
+		a device called the clipper chip, would be built into your phone, and before you
+		could make an encrypted connection with your 2nd party, a 3rd party would be
+		given some or all of the symmetric keys to your encrypted call
+	</aside>
+</section>
+
+<section data-background-image='img/burns_icedcream.gif'>
+	<h1></h1>
+	<aside class='notes'>
+		so if the courts needed the contents of an encrypted wiretap,
+		(which would sound like a wall of hissing)
+		they could supoena the key from the 3rd party and get the information they wanted
+	</aside>
+</section>
+
+<section data-background-image='img/homer_otto_catbus.gif'>
+	<h1></h1>
+	<aside class='notes'>
+		nobody wanted on this train
+		not even after the government decided that there would be some flexibility
+		in who the 3rd party was - the idea of a data vault meant that banks were suggested
+		as the keepers of the keys
+	</aside>
+</section>
+
+<section data-background-image='img/homer_cereal_fail.gif'>
+	<h1></h1>
+	<aside class='notes'>
+		the real nail in the coffin for key escrow was that the implementations failed
+		  miserably under the smallest bit of scrutiny
+		researchers were able to bypass the mechanisms that enforced the key escow on the first day
+		the first crack meant waiting 40 minutes on hold before the connection was brute forced
+		and faster attacks appeared later
+	</aside>
+</section>
+
+<section data-background-image='img/homer_falls_down.gif'>
+	<h1></h1>
+	<aside class='notes'>
+		all of this was taking place in the media and the court of public opinion
+		the moment the news cycle shifted to clipper is broken and key escrow fails the government drops their pressure
+	</aside>
+</section>
+
+<section data-background-image='img/people_cheer_pot.gif'>
+	<h1>liberalization</h1>
+	<aside class='notes'>
+		1996 An executive order comes down that transfers control of crypto from munitions regulators to the commerce department
+		1997 Banks are allowed unrestricted encryption access without key recovery
+		1998
+	</aside>
+</section>
+
+
+<section data-background-image='img/lisa_meats_hotdog.gif'>
 	<h1></h1>
 	<aside class='notes'>
 	</aside>
 </section>
 
-<section data-background-image='img/burns_float.gif'>
+<section data-background-image='img/burns_icedcream.gif'>
 	<h1></h1>
 	<aside class='notes'>
 	</aside>
 </section>
 
-<section data-background-image='img/burns_float.gif'>
+<section data-background-image='img/burns_icedcream.gif'>
+	<h1></h1>
+	<aside class='notes'>
+	</aside>
+</section>
+
+<section data-background-image='img/burns_icedcream.gif'>
+	<h1></h1>
+	<aside class='notes'>
+	</aside>
+</section>
+
+<section data-background-image='img/burns_icedcream.gif'>
+	<h1></h1>
+	<aside class='notes'>
+	</aside>
+</section>
+
+<section data-background-image='img/burns_icedcream.gif'>
+	<h1></h1>
+	<aside class='notes'>
+	</aside>
+</section>
+
+<section data-background-image='img/burns_icedcream.gif'>
 	<h1></h1>
 	<aside class='notes'>
 	</aside>

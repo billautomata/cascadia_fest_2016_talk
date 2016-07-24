@@ -30,6 +30,7 @@
   * Off-the-Record (OTR) messaging released
 * 2009, regulation handed to - https://en.wikipedia.org/wiki/Bureau_of_Industry_and_Security
 * 2016, FBI vs Apple
+  * FBI first asks for the keys, then asks for a broken implementation of the operating system to bypass the encryption
 * July 2016,  -http://www.rferl.org/content/russia-putin-signs-antiterror-law/27844555.html
   * Yarovaya Law, Russian legislation
 * 2016, DCMA vs W3C DRM encryption
