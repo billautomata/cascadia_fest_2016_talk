@@ -41,8 +41,8 @@
 	<h1>privacy and verification</h1>
 	<aside class='notes'>
 		<p>privacy is about keeping information secret</p>
-		<p>verification is about digital signatures which identifying the creator of the information,
-			it also verifies if the message has been tampered with</p>
+		<p>verification is about identifying the creator of the information,
+			verification can detect if the message has been tampered with</p>
 		<p>combine privacy and verification and you get security</p>
 	</aside>
 </section>
@@ -57,17 +57,19 @@
 	<div>Everyone has the right to the protection of the law</div>
 	<div>against such interference or attacks.</div>
 </q>
-<aside class='notes'></aside>
+<aside class='notes'>
+
+</aside>
 </section>
 
-<section data-background-image=' img/homer_beehive_smile.gif'>
+<section data-background-image=' img/lisa_computer.gif'>
 	<h1>&nbsp</h1>
 	<h1>&nbsp</h1>
 	<h1>&nbsp</h1>
 	<h1>&nbsp</h1>
 	<h1>the hero</h1>
 	<aside class='notes'>
-		<p></p>
+		<p>the hero of the story today is the every-person, all of you, all of us</p>
 	</aside>
 </section>
 
@@ -78,7 +80,7 @@
 	<h1>&nbsp</h1>
 	<h1>the villains</h1>
 	<aside class='notes'>
-		<p></p>
+		<p>the villains are the intelligence agencies, the military, and their corporate interests</p>
 	</aside>
 </section>
 
@@ -90,7 +92,21 @@
 	<h2>I have no idea what I'm doing</h2>
 	<aside class='notes'>
 		<p>early crypto is a grab bag of garbage and dumpster fires</p>
-		<p>nearly every system fell flat on it's face as they all contained one or more obvious fatal flaws</p>
+		<p>every system was fundamentally flawed in one way or another, somtimes many</p>
+	</aside>
+</section>
+
+<section data-background-image='img/kenngruppenheft.jpg'>
+	<h2>&nbsp</h2>
+	<h2>&nbsp</h2>
+	<h1 style='color: black;'>weak</h1>
+	<h1 style='color: black;'>protocols</h1>
+	<aside class='notes'>
+		<p>they relied on weak protocols</p>
+		<p>it didn't matter matter how good the messages were scrambled, the impelementation was poor</p>
+		<p>if you fully understood the design or captured the code book it is game over</p>
+		<p>once broken not only are all of the future messages exposed, all the previous messages are exposed</p>
+		<p>worse still, someone can now impersonate soldiers in the field until you get a new codebook out</p>
 	</aside>
 </section>
 
@@ -103,23 +119,7 @@
 	<h2>&nbsp</h2>
 	<h1>FIRST COMPUTERS</h1>
 	<aside class='notes'>
-		<p>some of the first things you could call computers were designed and
-		invented to break the cipher on intercepted communications</p>
-		<p>these systems depended on all of the parts remaining secret</p>
-		<p>if you understood the design or captured the code book</p>
-	</aside>
-</section>
-
-<section data-background-image='img/kenngruppenheft.jpg'>
-	<h2>&nbsp</h2>
-	<h2>&nbsp</h2>
-	<h1 style='color: black;'>weak</h1>
-	<h1 style='color: black;'>protocols</h1>
-	<aside class='notes'>
-		<p>it didn't matter matter how good the messages were scrambled, the impelemntation was poor</p>
-		<p>if you fully understood the design or captured the code book it is game over</p>
-		<p>not only are all of today's message exposed, all the previous messages sent are exposed</p>
-		<p>worse still, someone can now impersonate soldiers in the field until you get a new codebook out</p>
+		<p>some of the first computers were built to target these weaknesses</p>
 	</aside>
 </section>
 
@@ -128,27 +128,35 @@
 	<h1>&nbsp</h1>
 	<h1>&nbsp</h1>
 	<h4>1949</h4>
-	<aside class='notes'></aside>
+	<aside class='notes'>
+		persons responsible for ciphers were very much at a disadvantage until 1949 with the advent of information theory
+		mathematicians formalized the tools necessary to describe information transfer and storage
+		the language to describe modern cryptosystems was invented in 1949
+	</aside>
 </section>
 
 <section data-background-image='img/burns_snake.gif'>
 	<h3>1951 - 1970</h3>
 	<aside class='notes'>
-		The NSA is feeling good.
+		In 1951 the NSA is founded.
+		During this period the NSA is feeling good.
 		Anyone who wants to work on cryptography goes and works for them.
 		They control the funding mechanisms for cryptography.
 		They can also delcare patent applicaitons to be classified in the name of national security.
 		All the knowledge is kept by them behind the triple-fence.
+		Cryptosystems were used by spies and the military.
+		If you wanted to work on these things you needed to agree with the philosophy behind those organizations.
 	</aside>
 </section>
 
 <section data-background-image='img/skinner_money.gif'>
+	<!-- <h1>&nbsp</h1>
 	<h1>&nbsp</h1>
 	<h1>&nbsp</h1>
-	<h1>&nbsp</h1>
-	<h1>commerce</h1>
+	<h1>commerce</h1> -->
 	<aside class='notes'>
-		What broke the calm was the demand by commerce for a way to perform secure wire transfers.
+		What changed things was the demand by commerce for a way to perform secure wire transfers.
+		Banking was becoming computerized and performing wiretaps were trivial in the age of analog switched phones.
 	</aside>
 </section>
 
@@ -551,23 +559,36 @@ alice_key.getPrime()       // p
 	<h1>liberalization</h1>
 	<aside class='notes'>
 		1996 An executive order comes down that transfers control of crypto from munitions regulators to the commerce department
-		1997 Banks are allowed unrestricted encryption access without key recovery
-		1998
+		1997 Banks are allowed unrestricted encryption access without key recovery, also you can export 56 bit crypto instead of 40 bit
+		1998 Al Gore is about to start his campaign for president and they issue a memo
 	</aside>
 </section>
-
 
 <section data-background-image='img/lisa_meats_hotdog.gif'>
-	<h1></h1>
+	<h1>review</h1>
 	<aside class='notes'>
+		before I talk about the threats of today I want to review a few concepts and how they relate
+		crypto is more than just a set of algorithms,
+		it's the implementation of a set of protocols that define
+		  key generation,
+			key distribution,
+			rings of trust,
+			handshake protocols,
+			trusted and untrusted pipes
+		every step brings with it benefits and drawbacks
+		you can't just say "Oh I'll use RSA and AES" and leave it at that
 	</aside>
 </section>
 
-<section data-background-image='img/burns_icedcream.gif'>
-	<h1></h1>
+
+<section data-background-image='img/homer_anticipating.gif'>
+	<h1>Today</h1>
 	<aside class='notes'>
+		Snoopers charter means logging all your session keys.
 	</aside>
 </section>
+
+
 
 <section data-background-image='img/burns_icedcream.gif'>
 	<h1></h1>
