@@ -169,7 +169,11 @@
 		In 1975 we get DES.
 		DES is the first serious attempt at a widespread standard for data security.
 		It was successfully impelmented in chip, which made it easy to sell and use.
-		It was also approved by the NSA who designed the S-Boxes utilized in the cipher.  We'll get to what an S-Box is in a few slides.
+		An example is HBO used DES to scramble the signal when transmitting it over satellite.
+		Even though the NSA was involved in the design of the cipher, the only in weakness in DES is that it shipped with a 56 bit key strength.
+		The designers wanted a 128 bit length key, but hardware concerns limited it to 64 bit, and government interference down to 56 bits.
+		Each single bit reduction cuts the strength in half.  100 bit is twice as strong as 99 bit.  99 bit twice as strong as 98.
+		So think about the reduction in strength from 128 to 56.
 	</aside>
 </section>
 
@@ -177,7 +181,8 @@
 	<h3>symmetric cryptography</h3>
 	<aside class='notes'>
 		Symmetric encryption is the easy to understand type of encryption.
-		You have a key and an scrambling algorithm that you apply to your data to obscure it.
+		You have a key and an scrambling algorithm.
+		You combine your data, the key, and the algorithm and you scramble your data.
 		The recipient takes the same key and a reverse process to unscramble the data.
 		If you can keep the key secret, this works really well.
 	</aside>
@@ -199,7 +204,7 @@
 </code></pre>
 	<aside class='notes'>
 		DES is still around.
-		You can find it and other symmetric ciphers by running getCiphers()
+		You can find it and other symmetric ciphers in nodejs by running getCiphers()
 		This functionality is available to node because we link OpenSSL during compilation.
 		Node crypto is powered by openssl.
 	</aside>
@@ -213,7 +218,7 @@
 		They also needed a way to store information at rest.
 		Their researchers with the assistance of the NSA succeded in their task.
 		They created a block-cipher which took a fixed block of bytes, and performed multiple rounds of permutations.
-		These permutations take the form of a fixed shuffle procedure after each round of substitutions.
+		Specifically the permutations are multiple rounts of shuffling and substitution.
 	</aside>
 </section>
 
@@ -222,13 +227,13 @@
 	<img src='img/s-box.png'></img>
 	<aside class='notes'>
 		This is the hardest to understand part of modern symmetric encryption.
-		Each round of encryption you take a chunk of bytes, and perform a lookup operation with the values.
-		The value of your bytes are the indexes, and the entry is the output value.
+		Each round of encryption you take a chunk of bytes, and perform a lookup operation with the values themselves.
+		You take your current value, and use it to find the new value.
 		Your chunk is 68. Go find (6, 8) > 45.  Now next round your chunk is 45.
-		Do that 12 or 16 times comebined with a shuffle operation and you have the makings of a strong block cipher.
+		Do that 12 or 16 times combined with a shuffle operation after each step and you have the makings of a strong block cipher.
 		These s-boxes are hardcoded, and the values in the s-boxes are what makes them strong.
 		The NSA provided the s-boxes for DES.
-		Since the operation is so complex there is no way to verify that there is no hidden trap door in the s-box that the NSA knows how to exploit to reduce the strength of the scrambling.
+		Since the operation is so complex there is no way to verify that there is no hidden trap door in the s-box
 		Does the NSA have a special set of decoder s-boxes that allow them to more quickly guess your key?
 	</aside>
 </section>
@@ -252,6 +257,7 @@ assert.equal(plain_text, message)
 		So back to DES... it was a hit, we still use a version of it today.
 		Even thoug the NSA reduced the key size in their recommendation, it was secure and widespread.
 		It put cryptography outside of the realm of the military and spies.
+		It is about to become an industry.
 	</aside>
 </section>
 
@@ -260,37 +266,49 @@ assert.equal(plain_text, message)
 	<h1><br><br><br><br></h1>
 	<aside class='notes'>
 		This got everyone thinking hard about everything to do with codes and ciphers.
-
+		Where can we apply these ideas and make money?
 	</aside>
 </section>
 
 <section data-background-image='img/homer_rasta_walk.gif'>
+	<h1>&nbsp</h1>
+	<h1>&nbsp</h1>
+	<h1>&nbsp</h1>
 	<h1>1976</h1>
 	<aside class='notes'>
-		With Diffie and Martin Hellman published a seminal paper on public key cryptography.
-
+		It wasn't all commerce and banking.  A bunch of these types of folks got involved.
+		Californians...
+		Whit Diffie and Martin Hellman published a seminal paper on public key cryptography.
 	</aside>
 </section>
 
 <section>
+	<h1><strike>symmetric</strike></h1>
 	<h1>asymmetric encryption</h1>
 	<aside class='notes'>
-
+		A bunch of smart folks focused on the most obvious limitations of symmetric crypto
+		which is that no matter how strong the cipher or the s-box or how many rounds of
+		permutations you perform, someone can get your key when you have to do the all important
+		transfer between parties
 	</aside>
 </section>
 
 <section>
 	<h1>one way functions</h1>
 	<aside class='notes'>
+		overcoming this limitation lies in applying a group of math operations called
+		one-way-functions
 	</aside>
 </section>
 
 <section>
-	<h1>given, a = b + c</h1>
+	<h1>a = b + c</h1>
 	<h1>b = a - c</h1>
 	<h1>c = a - b</h1>
 	<h3>easy</h3>
 	<aside class='notes'>
+		this isn't a two-way function, that's something else, but these are not one-way-functions
+		given components of the equation you can derive all the other fields by performing inversed operations
 	</aside>
 </section>
 
@@ -300,6 +318,9 @@ assert.equal(plain_text, message)
 	<h3>solve for X</h3>
 	<h1>not easy</h1>
 	<aside class='notes'>
+		this is an issue when your equations look like this
+		that exponent really complicates matters
+		there isn't an efficient one-step solution to this problem 
 	</aside>
 </section>
 
@@ -310,6 +331,7 @@ assert.equal(plain_text, message)
 	<h3>choose a large X</h3>
 	<h3>it is your secret</h3>
 	<aside class='notes'>
+		there were a few others in the running, but the propsal that caught on is called the diffie hellman key exchange
 	</aside>
 </section>
 
