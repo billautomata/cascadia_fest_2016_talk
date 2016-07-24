@@ -267,6 +267,7 @@ assert.equal(plain_text, message)
 <section>
 	<h1>asymmetric encryption</h1>
 	<aside class='notes'>
+
 	</aside>
 </section>
 
@@ -296,7 +297,8 @@ assert.equal(plain_text, message)
 
 <section>
 	<h5>diffie-hellman key exchange</h5>
-	<h1>public = g<sup>x</sup> mod p</h1>
+	<h1>g<sup>x</sup> mod p = public</h1>
+	<h3>you are given G and P</h3>
 	<h3>choose a large X</h3>
 	<h3>it is your secret</h3>
 	<aside class='notes'>
@@ -304,8 +306,22 @@ assert.equal(plain_text, message)
 </section>
 
 <section>
-	<h1 style='color: rgb(33,66,255);'>pub1<span style='color: white;'> = g</span><sup>x</sup><span style='color: white;'> mod p</span></h1>
-	<h1 style='color: rgb(33, 255, 66);'>pub2<span style='color: white;'> = g</span><sup>y</sup><span style='color: white;'> mod p</span></h1>
+	<h4>math</h4>
+	<hr>
+	<h1>5 mod 2 = 1</h1>
+	<h2>2 √ 5 = 2, remainder 1</h2>
+	<hr>
+	<h1>4 mod 2 = 0</h1>
+	<h2>2 √ 4 = 2, remainder 0</h2>
+	<hr>
+	<aside class='notes'>
+	</aside>
+</section>
+
+
+<section>
+	<h1><span style='color: white;'>g</span><sup style='color: rgb(33,66,255);'>x</sup><span style='color: white;'> mod p</span> = <span style='color: rgb(33,66,255);'>pub1</span></h1>
+	<h1><span style='color: white;'>g</span><sup style='color: rgb(33,255,66);'>y</sup><span style='color: white;'> mod p</span>= <span style='color: rgb(33, 255, 66);'>pub2</span></h1>
 	<h1>
 	<span style='color: rgb(33, 255, 66);'>pub2</span><sup style='color: rgb(33,66,255);'>x</sup>
 	<span style='color: white'> mod p = </span>
@@ -377,8 +393,8 @@ alice_key.getPrime()       // p
 </section>
 
 <section data-background-image='img/homer_laughing.gif'>
-	<h1>1983</h1>
-	<h1>hardware</h1>
+<h1>1983</h1>
+	<h1>hardware company</h1>
 	<aside class='notes'>
 		Public-Key encryption is college level math.
 		People have to understand how it works in order to trust it.
@@ -394,7 +410,9 @@ alice_key.getPrime()       // p
 	<h1>1985</h1>
 	<h1>software company</h1>
 	<aside class='notes'>
-		They shifted away from chip making and
+		They shifted away from chip making and focused on licensing the
+		technology in other products.  Your email would be protected by RSA and
+		there would be a sticker on the box for your email program, RSA Inside.
 	</aside>
 </section>
 
@@ -404,15 +422,25 @@ alice_key.getPrime()       // p
 	<h1 style='color: rgb(33,66,255);'>public key (e,n)</h1>
 	<h1 style='color: rgb(255,66,33);'>private key (d)</h1>
 	<aside class='notes'>
+		Here is a description of the algorithm.
+		RSA is different from diffie-hellman in that it doesn't rely on the shared secret model.
+		RSA specifies a key generation routine, which I'm not describing here.
+		RSA comes with encryption and decryption operations.
+		You take another persons public key and your private key and you encrypt a random string of information, that is your symmetric key.
 	</aside>
 </section>
 
 <section>
 	<h2>sign</h2>
-	<h3><span style='color: rgb(33,66,255);'>signature</span> = encrypt ( hash( <span style='color: rgb(33,255,66);'>msg</span> ) )</h3>
+	<h3><span style='color: rgb(33,66,255);'>signature</span> = <span style='color: rgb(255,66,66);'>encrypt</span> ( <span style='color: rgb(255,255,66);'>hash</span>( <span style='color: rgb(33,255,66);'>msg</span> ) )</h3>
+	<h1>&nbsp</h1>
 	<h2>verify</h2>
-	<h3>hash( <span style='color: rgb(33,255,66);'>msg</span> ) = decrypt ( <span style='color: rgb(33,66,255);'>signature</span> )</h3>
+	<h3><span style='color: rgb(255,255,66);'>hash</span>( <span style='color: rgb(33,255,66);'>msg</span> ) = <span style='color: rgb(255,188,255);'>decrypt</span> ( <span style='color: rgb(33,66,255);'>signature</span> )</h3>
 	<aside class='notes'>
+		Another feature of RSA is the signature and verification routines.
+		I can prove I sent an email by taking the contents, hashing them, then encyrpting the hash with my private key.
+		You can take my public key and decrypt the hash and compare it with a hash you create of the message contents.
+		If the decrypted hash, and your calculated hash mapped you can know that only the person with the private key signed this message.
 	</aside>
 </section>
 
@@ -420,6 +448,7 @@ alice_key.getPrime()       // p
 	<h1>1989</h1>
 	<h1>lotus notes</h1>
 	<aside class='notes'>
+		RSA is licensed to be used in Lotus Notes.  They wanted to use a combination of RSA for the
 	</aside>
 </section>
 

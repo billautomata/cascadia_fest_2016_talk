@@ -17,17 +17,19 @@
 * 1987, Rupert Murdoch in a bid to buy RSA
 * 1989, Lotus Notes 1.0 with RSA launches
 * 1990, Defense Department buys RSA license, against the wishes of the NSA
-*
-
-
 * 1991, pgp released with source code
   * first posted on PeaceNet, an ISP that specialized in grassroots political organizations
+  * never smaller than 128 bit keys export
+* 1993, pgp criminal investigation opens
+  * RSA reports him to the customs service for violating the RSA patent
+
 * 1995, https://en.wikisource.org/wiki/Executive_Order_13026
-
+  * relaxes the export laws around crypto, the current law of the land
+* 1996, pgp criminal investigation closes
+* 2004 October 26, https://en.wikipedia.org/wiki/Off-the-Record_Messaging
+  * Off-the-Record (OTR) messaging released
 * 2009, regulation handed to - https://en.wikipedia.org/wiki/Bureau_of_Industry_and_Security
-
 * 2016, FBI vs Apple
-* July 2016, Yarovaya Law, Russian legislation - http://www.rferl.org/content/russia-putin-signs-antiterror-law/27844555.html
-
-
-* 2004 October 26, Off-the-Record messaging released - https://en.wikipedia.org/wiki/Off-the-Record_Messaging
+* July 2016,  -http://www.rferl.org/content/russia-putin-signs-antiterror-law/27844555.html
+  * Yarovaya Law, Russian legislation
+* 2016, DCMA vs W3C DRM encryption
