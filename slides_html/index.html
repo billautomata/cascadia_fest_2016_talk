@@ -464,8 +464,8 @@ alice_key.getPrime()       // p
 		RSA is different from diffie-hellman in that it doesn't rely on the shared secret model.
 		RSA specifies a key generation routine, which I'm not describing here.
 		RSA comes with encryption and decryption operations.
-		You take another persons public key and your private key and you encrypt a random string of information, that is your symmetric key to encrypt your file.
-		RSA can only encrypt information as large as the key sizes.  1024 bit key = encrypt 1024 bits of information.
+		Since RSA doesn't rely on a shared secret, you would just generate a random string of data, and encrypt it using the RSA public key of your recipient.  Use that key with a symmetric cipher and send both along.
+		The recipient recovers the symmetric key using their private key, and decrypts the data packet.
 	</aside>
 </section>
 
@@ -484,17 +484,6 @@ alice_key.getPrime()       // p
 </section>
 
 <section>
-<h1>generate keys</h1>
-<pre><code class='bash'># generate private key
-openssl genrsa -out 4096_private.dat 4096
-# generate public key
-openssl rsa -in  4096_private.dat -pubout > 4096.pub
-</code></pre>
-	<aside class='notes'>
-	</aside>
-</section>
-
-<section>
 <pre><code class='hljs'>const crypto = require('crypto'); const fs = require('fs')
 var private_key = fs.readFileSync('./4096_private.dat')
 var public_key = fs.readFileSync('./4096.pub')
@@ -508,8 +497,29 @@ var signature = sign.sign(private_key, 'hex')
 var verify = crypto.createVerify('RSA-SHA256')
 verify.update(message)
 
-assert(verify.verify(public_key, signature, 'hex'), true)</code></pre>
+assert.equal(verify.verify(public_key, signature, 'hex'), true)</code></pre>
 	<aside class='notes'>
+		Here is what I just talked about as code in nodejs.
+		You load the keys.  You have a message.
+		You create a sign object and call update with the message,
+		then you call sign it and pass the private key
+		You send your message, your signature, and your public key to the other party
+		the other party can create a verify object, update it with the message
+		then verify the message using the public key and the signature
+	</aside>
+</section>
+
+<section>
+<h1>generate keys</h1>
+<pre><code class='bash'># generate private key
+openssl genrsa -out 4096_private.dat 4096
+# generate public key
+openssl rsa -in  4096_private.dat -pubout > 4096.pub
+</code></pre>
+	<aside class='notes'>
+		node core doesn't let you create rsa keys
+		it expect you to have run openssl and use static keys
+
 	</aside>
 </section>
 
@@ -517,9 +527,38 @@ assert(verify.verify(public_key, signature, 'hex'), true)</code></pre>
 	<h1>1989</h1>
 	<h1>lotus notes</h1>
 	<aside class='notes'>
-		RSA is licensed to be used in Lotus Notes.  They wanted to use a combination
+		Back to the story...
+		In 1989 RSA is licensed to be used in Lotus Notes.  They wanted to use a combination
 		of RSA and DES for the encryption but the NSA would not allow them to export DES.
 		So the RSA people invented the RC-2 cipher at two strengths, 64bit and 40 bit.
+	</aside>
+</section>
+
+<section data-background-image='img/homer_typing_bed.gif'>
+	<h1>&nbsp</h1>
+	<pre><code class='hljs'>
+  const c = require('crypto')	// es6... (e_e)
+  c.getCiphers()
+
+  // (partial results)
+
+	[ "aes128","aes192","aes256","blowfish",
+	 "camellia128","camellia192","camellia256","cast",
+	 "des","des3","desx","idea",
+	 "rc2",
+	 "rc2-40-cbc",
+	 "rc2-64-cbc",
+	 "rc4",
+	 "rc4-40",
+	 "seed" ]
+
+</code></pre>
+	<aside class='notes'>
+		Remember this slide where I show you how to list the ciphers?
+		Notice the 40 after RC2 and RC4?  Those are export strengths.
+		That is the fingerprints of the politics of the early 90s baked into your node dot js
+		See the 256 on aes?  Those are comparable numbers. 41 is twice as strong as 40, 42 twice 41 and so on up to 256.
+		If the fight against strong encryption is lost you will see the numbers in getCiphers get smaller
 	</aside>
 </section>
 
@@ -527,9 +566,8 @@ assert(verify.verify(public_key, signature, 'hex'), true)</code></pre>
 	<h1>1991</h1>
 	<h1>pgp</h1>
 	<aside class='notes'>
-		we're kind of blasting through the timeline here because you would not believe how long the product lifecycles for this stuff is, multiple years to get software out
-		pgp version 1.0 released using a combination of RSA and a symmetric cipher
-		called bassomatic
+		we're kind of blasting through the timeline here because you would not believe how long it took for them to write and release this software
+		but pgp version 1.0 released using a combination of RSA and a symmetric cipher called bassomatic
 		yes from the saturday night live sketch
 	</aside>
 </section>
@@ -557,7 +595,7 @@ assert(verify.verify(public_key, signature, 'hex'), true)</code></pre>
 	</aside>
 </section>
 
-<section data-background-image='img/homer_end_is_near.gif'>
+<section data-background-image='img/homer_cops_bumpercar.gif'>
 	<aside class='notes'>
 		but just a month later the San Jose customs office opens up a formal criminal investigation
 		regarding the illegal export of a munitions without a license
@@ -565,6 +603,7 @@ assert(verify.verify(public_key, signature, 'hex'), true)</code></pre>
 		it's all just threats and intimidation
 		I had a hard time researching hard concrete details about this talk because there is very little in the way of publicly available court proceedings
 		You can't find a listing of what was and wasn't considered illegal at the time because it was entirely at the discretion of opaque government entities that would swing back and forth their interpretation of the current state of affairs
+		the law was being practiced through secret letters and memos
 	</aside>
 </section>
 
@@ -574,8 +613,8 @@ assert(verify.verify(public_key, signature, 'hex'), true)</code></pre>
 		so rewind a bit...
 		it's 1993 so the whole time they are investigating email and software people for their
 		strong encryption the government is pushing their solution for all this mess,
-		which is key escrow
-		a device called the clipper chip symbolized it,
+		which is key escrow, and later a softened term: key recovery
+		a device called the clipper chip symbolized key escrow
 		it would be built into your phone, and before you could make an encrypted connection with your 2nd party, a 3rd party would be given some or all of the symmetric keys to your encrypted communications
 	</aside>
 </section>
@@ -592,19 +631,20 @@ assert(verify.verify(public_key, signature, 'hex'), true)</code></pre>
 <section data-background-image='img/homer_otto_catbus.gif'>
 	<h1></h1>
 	<aside class='notes'>
-		nobody wanted on this train
+		nobody wanted on this train, not commerce, not the public
 		not even after the government decided that there would be some flexibility
-		in who the 3rd party was - the idea of a data vault meant that banks were suggested
-		as the keepers of the keys
+		in who the 3rd party was
+		consumers could choose who stored their keys
+		the big idea was that banks would keep them
+		imagine if your API services involved contacting a bank with every transaction
 	</aside>
 </section>
 
 <section data-background-image='img/homer_cereal_fail.gif'>
 	<h1></h1>
 	<aside class='notes'>
-		the real nail in the coffin for key escrow was that the implementations failed
-		  miserably under the smallest bit of scrutiny
-		researchers were able to bypass the mechanisms that enforced the key escow on the first day
+		the real nail in the coffin for key escrow was that the implementations failed miserably under the smallest bit of scrutiny
+		on the first day looking researchers were able to bypass the mechanisms that enforced the key escow
 		the first crack meant waiting 40 minutes on hold before the connection was brute forced
 		and faster attacks appeared later
 	</aside>
@@ -621,7 +661,7 @@ assert(verify.verify(public_key, signature, 'hex'), true)</code></pre>
 <section data-background-image='img/people_cheer_pot.gif'>
 	<h1>liberalization</h1>
 	<aside class='notes'>
-		<p>1996 An executive order comes down that transfers control of crypto from munitions regulators to the commerce department</p>
+		<p>1996 An executive order comes down that transfers control of crypto from munitions regulators to the commerce department, you just ask for certifications for internal distribution and you are generally granted them</p>
 		<p>1997 Banks are allowed unrestricted encryption access without key recovery, also you can export 56 bit crypto instead of 40 bit</p>
 		<p>1998 Al Gore is about to start his campaign for president and they issue a memo basically making it a free-for-all in terms of strength and streamlines the process for export approval</p>
 	</aside>
@@ -641,12 +681,13 @@ assert(verify.verify(public_key, signature, 'hex'), true)</code></pre>
 		every step brings with it benefits and drawbacks
 		you can't just say "Oh I'll use RSA and AES" and leave it at that
 		all the parties have to agree on every detail or things don't work at all
-		future versions of software have to support the standard taht created old messages or those old messages won't be readable
-		your encryption protocol also has to work in the real world, on untrusted networks, so every step in your protocol needs special attention paid as changes in underlying configurations can leave your implementation weak
-		for example, we trust our ISPs to not attack our connections, but that isn't the case for many internet users
+		future versions of software have to support the standard that created old messages or those old messages won't be readable
+		your encryption protocol also has to work in the real world, on untrusted networks, that time out... so every step in your protocol needs special attention paid as invisible changes in underlying configurations can leave your implementation weak
+		did your ISP change how packets are routed and now you are leaking your keys?
+		we trust our ISPs to not attack our connections, but that isn't the case for many internet users
+		people behind the great-firewall in china design their cryptography software to account for different things than we expect on our mostly unrestricted connections
 	</aside>
 </section>
-
 
 <section data-background-image='img/homer_anticipating.gif'>
 	<h1>Today</h1>

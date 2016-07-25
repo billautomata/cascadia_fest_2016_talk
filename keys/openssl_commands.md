@@ -4,8 +4,8 @@
 ssh-keygen -t rsa -N '' -f our_key
 
 # using openssl genrsa
-openssl genrsa -out our_key 4096
-openssl rsa -in our_key -pubout > our_key.pub
+openssl genrsa -out 4096_private.dat 4096
+openssl rsa -in  4096_private.dat -pubout > 4096.pub
 ssh-keygen -y -f our_key > our_key.ssh_pub
 
 # generate public key for ssh from existing rsa key
