@@ -484,24 +484,34 @@ alice_key.getPrime()       // p
 </section>
 
 <section>
-	<h1>a = g<sup>x</sup> mod p</h1>
-<pre><code class='hljs'>// a = (g ^ x) mod p
-const crypto = require('crypto');
-
-// Generate Alice's keys...
-const alice = crypto.createDiffieHellman(2048);
-// or const alice = crypto.getDiffieHellman('modp14');
-const alice_key = alice.generateKeys();
-
-alice_key.getPublicKey()   // a
-alice_key.getGenerator()   // g
-alice_key.getPrivateKey()  // x
-alice_key.getPrime()       // p
+<h1>generate keys</h1>
+<pre><code class='bash'># generate private key
+openssl genrsa -out 4096_private.dat 4096
+# generate public key
+openssl rsa -in  4096_private.dat -pubout > 4096.pub
 </code></pre>
 	<aside class='notes'>
 	</aside>
 </section>
 
+<section>
+<pre><code class='hljs'>const crypto = require('crypto'); const fs = require('fs')
+var private_key = fs.readFileSync('./4096_private.dat')
+var public_key = fs.readFileSync('./4096.pub')
+var message = 'secret message'
+
+var sign = crypto.createSign('RSA-SHA256')
+sign.update(message)
+
+var signature = sign.sign(private_key, 'hex')
+
+var verify = crypto.createVerify('RSA-SHA256')
+verify.update(message)
+
+assert(verify.verify(public_key, signature, 'hex'), true)</code></pre>
+	<aside class='notes'>
+	</aside>
+</section>
 
 <section data-background-image='img/pets_dancing.gif'>
 	<h1>1989</h1>
@@ -512,7 +522,6 @@ alice_key.getPrime()       // p
 		So the RSA people invented the RC-2 cipher at two strengths, 64bit and 40 bit.
 	</aside>
 </section>
-
 
 <section data-background-image='img/homer_snakes_box.gif'>
 	<h1>1991</h1>
@@ -554,7 +563,7 @@ alice_key.getPrime()       // p
 		regarding the illegal export of a munitions without a license
 		then in 1997 the case closes with no charges filed
 		it's all just threats and intimidation
-		I had a hard time researching hard details about this talk because there is very little in the way of publicly available court proceedings
+		I had a hard time researching hard concrete details about this talk because there is very little in the way of publicly available court proceedings
 		You can't find a listing of what was and wasn't considered illegal at the time because it was entirely at the discretion of opaque government entities that would swing back and forth their interpretation of the current state of affairs
 	</aside>
 </section>
@@ -564,17 +573,17 @@ alice_key.getPrime()       // p
 	<aside class='notes'>
 		so rewind a bit...
 		it's 1993 so the whole time they are investigating email and software people for their
-		strong encryption the government is pushing their solution for all this mess
-		a device called the clipper chip, would be built into your phone, and before you
-		could make an encrypted connection with your 2nd party, a 3rd party would be
-		given some or all of the symmetric keys to your encrypted call
+		strong encryption the government is pushing their solution for all this mess,
+		which is key escrow
+		a device called the clipper chip symbolized it,
+		it would be built into your phone, and before you could make an encrypted connection with your 2nd party, a 3rd party would be given some or all of the symmetric keys to your encrypted communications
 	</aside>
 </section>
 
 <section data-background-image='img/burns_icedcream.gif'>
 	<h1></h1>
 	<aside class='notes'>
-		so if the courts needed the contents of an encrypted wiretap,
+		so if law enforcement needed the contents of an encrypted wiretap
 		(which would sound like a wall of hissing)
 		they could supoena the key from the 3rd party and get the information they wanted
 	</aside>
@@ -632,6 +641,9 @@ alice_key.getPrime()       // p
 		every step brings with it benefits and drawbacks
 		you can't just say "Oh I'll use RSA and AES" and leave it at that
 		all the parties have to agree on every detail or things don't work at all
+		future versions of software have to support the standard taht created old messages or those old messages won't be readable
+		your encryption protocol also has to work in the real world, on untrusted networks, so every step in your protocol needs special attention paid as changes in underlying configurations can leave your implementation weak
+		for example, we trust our ISPs to not attack our connections, but that isn't the case for many internet users
 	</aside>
 </section>
 
