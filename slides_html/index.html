@@ -37,17 +37,6 @@
 </section>
 
 <section>
-	<h3>encryption is about</h3>
-	<h1>privacy and verification</h1>
-	<aside class='notes'>
-		<p>privacy is about keeping information secret</p>
-		<p>verification is about identifying the creator of the information,
-			verification can detect if the message has been tampered with</p>
-		<p>combine privacy and verification and you get security</p>
-	</aside>
-</section>
-
-<section>
 <h3>UN Declaration of Human Rights</h3>
 <h4>Article 12</h4>
 <q>
@@ -60,6 +49,17 @@
 <aside class='notes'>
 
 </aside>
+</section>
+
+<section>
+	<h3>encryption is about</h3>
+	<h1>privacy and verification</h1>
+	<aside class='notes'>
+		<p>privacy is about keeping information secret</p>
+		<p>verification is about identifying the creator of the information,
+			verification can detect if the message has been tampered with</p>
+		<p>combine privacy and verification and you get security</p>
+	</aside>
 </section>
 
 <section data-background-image=' img/lisa_computer.gif'>
@@ -180,7 +180,7 @@
 <section>
 	<h3>symmetric cryptography</h3>
 	<aside class='notes'>
-		Symmetric encryption is the easy to understand type of encryption.
+		Symmetric cryptography is the easy to understand type of encryption.
 		You have a key and an scrambling algorithm.
 		You combine your data, the key, and the algorithm and you scramble your data.
 		The recipient takes the same key and a reverse process to unscramble the data.
@@ -212,8 +212,9 @@
 
 
 <section data-background-image='img/burns_phone.gif'>
-	<h1>secure telephony</h1>
+	<h1>☎☈☏</h1>
 	<aside class='notes'>
+		<h1>secure telephony</h1>
 		IBM needed a way for their mainframes to talk to one another in a secure way.
 		They also needed a way to store information at rest.
 		Their researchers with the assistance of the NSA succeded in their task.
@@ -435,8 +436,10 @@ alice_key.getPrime()       // p
 		People have to understand how it works in order to trust it.
 		Symmteric encryption is easy, a key locks and unlocks a door.
 		Asymmetric encryption is college level math.
-		Understanding that your key becomes a different key when you use it in someone elses lock, that's really difficult to understand how that works.
-		Also you have two keys now... RSA wanted to simpifly things.  Put it on a chip.
+		There are mulitple keys, and multiple steps to using them.
+		Your key becomes a different key when used in someone else's lock.
+		Everyone shares a different secret.
+		RSA wanted to simpifly things.  Put it on a chip.  Ship it in a box.
 		It didn't work.
 	</aside>
 </section>
@@ -457,11 +460,12 @@ alice_key.getPrime()       // p
 	<h1 style='color: rgb(33,66,255);'>public key (e,n)</h1>
 	<h1 style='color: rgb(255,66,33);'>private key (d)</h1>
 	<aside class='notes'>
-		Here is a description of the algorithm.
+		This is the RSA algorithm.
 		RSA is different from diffie-hellman in that it doesn't rely on the shared secret model.
 		RSA specifies a key generation routine, which I'm not describing here.
 		RSA comes with encryption and decryption operations.
-		You take another persons public key and your private key and you encrypt a random string of information, that is your symmetric key.
+		You take another persons public key and your private key and you encrypt a random string of information, that is your symmetric key to encrypt your file.
+		RSA can only encrypt information as large as the key sizes.  1024 bit key = encrypt 1024 bits of information.
 	</aside>
 </section>
 
@@ -475,11 +479,31 @@ alice_key.getPrime()       // p
 		Another feature of RSA is the signature and verification routines.
 		I can prove I sent an email by taking the contents, hashing them, then encrypting the hash with my private key.
 		You can take my public key and decrypt the hash and compare it with a hash you create of the message contents.
-		If the decrypted hash, and your calculated hash mapped you can know that only the person with the private key signed this message.
+		If the decrypted hash, and your calculated hash are equal, you can know with certainty that I signed the message
 	</aside>
 </section>
 
-<section data-background-image='img/homer_wave.gif'>
+<section>
+	<h1>a = g<sup>x</sup> mod p</h1>
+<pre><code class='hljs'>// a = (g ^ x) mod p
+const crypto = require('crypto');
+
+// Generate Alice's keys...
+const alice = crypto.createDiffieHellman(2048);
+// or const alice = crypto.getDiffieHellman('modp14');
+const alice_key = alice.generateKeys();
+
+alice_key.getPublicKey()   // a
+alice_key.getGenerator()   // g
+alice_key.getPrivateKey()  // x
+alice_key.getPrime()       // p
+</code></pre>
+	<aside class='notes'>
+	</aside>
+</section>
+
+
+<section data-background-image='img/pets_dancing.gif'>
 	<h1>1989</h1>
 	<h1>lotus notes</h1>
 	<aside class='notes'>
@@ -494,6 +518,7 @@ alice_key.getPrime()       // p
 	<h1>1991</h1>
 	<h1>pgp</h1>
 	<aside class='notes'>
+		we're kind of blasting through the timeline here because you would not believe how long the product lifecycles for this stuff is, multiple years to get software out
 		pgp version 1.0 released using a combination of RSA and a symmetric cipher
 		called bassomatic
 		yes from the saturday night live sketch
@@ -512,14 +537,14 @@ alice_key.getPrime()       // p
 <section data-background-image='img/bart_lisa_fighting.gif'>
 	<h1>1993</h1>
 	<aside class='notes'>
-		in 1993 RSA security reports the PGP creators to the us export and customs for violating the rsa patent
+		in 1993 RSA security inc. reports the PGP creators to the us export and customs for violating the rsa patent
 	</aside>
 </section>
 
-<section data-background-image='img/homer_money_thinking.gif'>
+<section data-background-image='img/homer_beehive_smile.gif'>
 	<h1></h1>
 	<aside class='notes'>
-		he then sells pgp to a company that owns a license for RSA
+		the pgp creator then sells pgp to a company that owns a license for RSA neutralizing that problem
 	</aside>
 </section>
 
@@ -528,14 +553,17 @@ alice_key.getPrime()       // p
 		but just a month later the San Jose customs office opens up a formal criminal investigation
 		regarding the illegal export of a munitions without a license
 		then in 1997 the case closes with no charges filed
-		it's all just threats
+		it's all just threats and intimidation
+		I had a hard time researching hard details about this talk because there is very little in the way of publicly available court proceedings
+		You can't find a listing of what was and wasn't considered illegal at the time because it was entirely at the discretion of opaque government entities that would swing back and forth their interpretation of the current state of affairs
 	</aside>
 </section>
 
 <section data-background-image='img/burns_alien.gif'>
 	<h1>key escrow</h1>
 	<aside class='notes'>
-		so the whole time they are investigating email and software people for their
+		so rewind a bit...
+		it's 1993 so the whole time they are investigating email and software people for their
 		strong encryption the government is pushing their solution for all this mess
 		a device called the clipper chip, would be built into your phone, and before you
 		could make an encrypted connection with your 2nd party, a 3rd party would be
@@ -577,16 +605,16 @@ alice_key.getPrime()       // p
 	<h1></h1>
 	<aside class='notes'>
 		all of this was taking place in the media and the court of public opinion
-		the moment the news cycle shifted to clipper is broken and key escrow fails the government drops their pressure
+		the moment the news cycle shifted to the idea that the clipper chip is broken and key escrow doesn't work the government drops their pressure
 	</aside>
 </section>
 
 <section data-background-image='img/people_cheer_pot.gif'>
 	<h1>liberalization</h1>
 	<aside class='notes'>
-		1996 An executive order comes down that transfers control of crypto from munitions regulators to the commerce department
-		1997 Banks are allowed unrestricted encryption access without key recovery, also you can export 56 bit crypto instead of 40 bit
-		1998 Al Gore is about to start his campaign for president and they issue a memo
+		<p>1996 An executive order comes down that transfers control of crypto from munitions regulators to the commerce department</p>
+		<p>1997 Banks are allowed unrestricted encryption access without key recovery, also you can export 56 bit crypto instead of 40 bit</p>
+		<p>1998 Al Gore is about to start his campaign for president and they issue a memo basically making it a free-for-all in terms of strength and streamlines the process for export approval</p>
 	</aside>
 </section>
 
@@ -594,7 +622,7 @@ alice_key.getPrime()       // p
 	<h1>review</h1>
 	<aside class='notes'>
 		before I talk about the threats of today I want to review a few concepts and how they relate
-		crypto is more than just a set of algorithms,
+		crypto is more than just the math, or key generation steps
 		it's the implementation of a set of protocols that define
 		  key generation,
 			key distribution,
@@ -603,6 +631,7 @@ alice_key.getPrime()       // p
 			trusted and untrusted pipes
 		every step brings with it benefits and drawbacks
 		you can't just say "Oh I'll use RSA and AES" and leave it at that
+		all the parties have to agree on every detail or things don't work at all
 	</aside>
 </section>
 
