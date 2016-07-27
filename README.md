@@ -5,10 +5,6 @@ notes for my cascadiafest 2016 talk
 
 Strong encryption is enabled by default in many computer products, both in hardware and software services.  Advances in computing power and communications availability have tipped the scales of privacy and security towards the masses instead of it resting in the hands of a few secretive government agencies.  The current version of the response by those in power mirrors the attempts to subvert access to encryption in the 1970s and in the 1990s.
 
-## Limitations / Focus
-
-* America centric,
-
 ## broad outline
 * algorithm fundamentals
   * symmetric vs public key
@@ -20,7 +16,7 @@ Strong encryption is enabled by default in many computer products, both in hardw
   * 1970s, diffie hellman / rsa
   * 1980s, selling software and chips - lotus notes
   * 1990s, distributing free software - pgp
-  * 2000s, clipper chip
+  * 2000s, clipper chip, key escrow
   * 2010s, NSA & state actors
   * 2020s, quantum?
 
@@ -56,6 +52,8 @@ or attacks.
 * notable algorithms
   * Diffie-Hellman key exchange
   * RSA
+
+
 
 ### what forces were involved in fighting encryption
 
@@ -95,11 +93,11 @@ or attacks.
 
 >  The U.S. Government's introduction of the Data Encryption Standard in 1975 meant that commercial uses of high quality encryption would become common, and serious problems of export control began to arise. Generally these were dealt with through case-by-case export license request proceedings brought by computer manufacturers, such as IBM, and by their large corporate customers. [link](https://en.wikipedia.org/wiki/Export_of_cryptography_from_the_United_States#Cold_War_era)
 
->
+> As of 2003 RSA Security claims that 1024-bit RSA keys are equivalent in strength to 80-bit symmetric keys, 2048-bit RSA keys to 112-bit symmetric keys and 3072-bit RSA keys to 128-bit symmetric keys.[14] RSA claims that 1024-bit keys are likely to become crackable some time between 2006 and 2010 and that 2048-bit keys are sufficient until 2030.[14] An RSA key length of 3072 bits should be used if security is required beyond 2030.[15] NIST key management guidelines further suggest that 15360-bit RSA keys are equivalent in strength to 256-bit symmetric keys.[16]
 
 # quotes
 
--
+* "Trust us" -NSA
 
 # random notes and ideas
 

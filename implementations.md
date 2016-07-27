@@ -10,9 +10,10 @@
 
 ## pgp
 * v1 rsa + bass-o-matic
-* v2 rsa + IDEA 
+* v2 rsa + IDEA
 
 ## ssh
+* https://www.digitalocean.com/community/tutorials/understanding-the-ssh-encryption-and-connection-process
 * `ssh keygen` creates an RSA key
 * login is a digital signature created by the client from a random challenge from the server
 
