@@ -199,12 +199,27 @@
 </section>
 
 <section>
-	<h3>symmetric cryptography</h3>
+	<h1>symmetric cryptography</h1>
 	<aside class='notes'>
-		Symmetric cryptography is the easy to understand type of encryption.
+		DES is a type of symmetric cryptography
+	</aside>
+</section>
+
+<section>
+	<div style='margin-left: 10%; width:80%;'>
+		<h3 style='background-color: rgb(66,255,66); color: black;'>plain text</h3>
+		<h3 style='background-color: rgb(33,66,255)'>key</h3>
+		<h3 style='background-color: rgb(255,66,33)'>encipher</h3>
+		<h3 style='background-color: rgb(255,33,33); color: black;'>cipher text</h3>
+		<h3 style='background-color: rgb(255,66,33)'>decipher</h3>
+		<h3 style='background-color: rgb(33,66,255)'>key</h3>
+		<h3 style='background-color: rgb(66,255,66); color: black;'>plain text</h3>
+	</div>
+	<aside class='notes'>
+		Symmetric cryptography is the easier to understand type of encryption.
 		You have a key and an scrambling algorithm.
 		You combine your data, the key, and the algorithm and you scramble your data.
-		The recipient takes the same key and a reverse process to unscramble the data.
+		The recipient takes the same key and a reverse process to unscramble the data to recover the plaintext
 		If you can keep the key secret, this works really well.
 	</aside>
 </section>
@@ -510,18 +525,59 @@ alice_key.getPrime()       // p
 </section>
 
 <section>
+	<div style='display: block;'>
+	<div style='width:40%; display: inline-block;'>
+		<h4>symmetric</h4>
+		<h3 style='background-color: rgb(66,255,66); color: black;'>plain text</h3>
+		<h3 style='background-color: rgb(33,66,255)'>key</h3>
+		<h3 style='background-color: rgb(255,66,33)'>encipher</h3>
+		<h3 style='background-color: rgb(255,33,33); color: black;'>cipher text</h3>
+		<h3 style='background-color: rgb(255,66,33)'>decipher</h3>
+		<h3 style='background-color: rgb(33,66,255)'>key</h3>
+		<h3 style='background-color: rgb(66,255,66); color: black;'>plain text</h3>
+	</div>
+	<div style='width:40%; display: inline-block;'>
+		<h4>asymmetric</h4>
+		<h3 style='background-color: rgb(66,255,66); color: black;'>plain text</h3>
+		<h3 style='background-color: rgb(33,66,255)'>public key</h3>
+		<h3 style='background-color: rgb(255,66,33)'>encipher</h3>
+		<h3 style='background-color: rgb(255,33,33); color: black;'>cipher text</h3>
+		<h3 style='background-color: rgb(255,66,33)'>decipher</h3>
+		<h3 style='background-color: rgb(33,66,255)'>private key</h3>
+		<h3 style='background-color: rgb(66,255,66); color: black;'>plain text</h3>
+	</div>
+</div>	<aside class='notes'>
+	</aside>
+</section>
+
+<!-- <section>
 	<h2>sign</h2>
 	<h3><span style='color: rgb(33,66,255);'>signature</span> = <span style='color: rgb(255,66,66);'>encrypt</span> ( <span style='color: rgb(255,255,66);'>hash</span>( <span style='color: rgb(33,255,66);'>msg</span> ) )</h3>
 	<h1>&nbsp</h1>
 	<h2>verify</h2>
 	<h3><span style='color: rgb(255,255,66);'>hash</span>( <span style='color: rgb(33,255,66);'>msg</span> ) = <span style='color: rgb(255,188,255);'>decrypt</span> ( <span style='color: rgb(33,66,255);'>signature</span> )</h3>
+</section> -->
+
+<section>
+	<div style='width:60%; display: inline-block;'>
+		<h4>sign & verify</h4>
+		<h3 style='background-color: rgb(66,255,66); color: black;'>plain text</h3>
+		<h3 style='background-color: rgb(33,66,255)'>private key</h3>
+		<h3 style='background-color: rgb(255,66,33)'>sign</h3>
+		<h3 style='background-color: rgb(255,33,33); color: black;'>signature</h3>
+		<h3 style='background-color: rgb(255,66,33)'>verify</h3>
+		<h3 style='background-color: rgb(33,66,255)'>public key</h3>
+		<h3 style='background-color: rgb(66,255,66); color: black;'>plain text</h3>
+	</div>
 	<aside class='notes'>
 		Another feature of RSA is the signature and verification routines.
 		I can prove I sent an email by taking the contents, hashing them, then encrypting the hash with my private key.
 		You can take my public key and decrypt the hash and compare it with a hash you create of the message contents.
 		If the decrypted hash, and your calculated hash are equal, you can know with certainty that I signed the message
 	</aside>
+
 </section>
+
 
 <section>
 <pre><code class='hljs'>const crypto = require('crypto'); const fs = require('fs')
@@ -660,16 +716,23 @@ openssl rsa -in  4096_private.dat -pubout > 4096.pub
 </section>
 
 <section data-background-image='img/burns_icedcream.gif'>
-	<h1></h1>
+	<h1>&nbsp</h1>
+	<h1>&nbsp</h1>
+	<h1>&nbsp</h1>
+	<h1>&nbsp</h1>
+	<h1>trust us</h1>
 	<aside class='notes'>
 		so if law enforcement needed the contents of an encrypted wiretap
 		(which would sound like a wall of hissing)
 		they could supoena the key from the 3rd party and get the information they wanted
+		the people proposing this idea constantly harp on this idea of "trust us, if you only knew what we knew"
+		well during this time we got some citizens to review the information the NSA says would say anyone if they could only release it
+		it's bunk
 	</aside>
 </section>
 
 <section data-background-image='img/homer_otto_catbus.gif'>
-	<h1></h1>
+	<h1>nope</h1>
 	<aside class='notes'>
 		nobody wanted on this train, not commerce, not the public
 		not even after the government decided that there would be some flexibility
