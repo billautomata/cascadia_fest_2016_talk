@@ -51,11 +51,11 @@
 		<div>against such interference or attacks.</div>
 	</q>
 	<aside class='notes'>
-		My talk today is going to cover a bit of history, some math, and a fair bit of code examples.
-		The underlying motivation in all of this is based in the desire for a group of people to exercise the right best summarized here in article 12 of the UN Declaration of Human Rights
-		Not only are you protected from interference with your correspondence and you privacy but it lists the stakes involved: honor and reputation.
-		The word attack is also really strong language, no where else in the document do you get such strong language.  You mostly see words like deprived, and persectuion.
-		While I'm going to talk a lot about people starting businesses and patent fights between academics, the people doing the fighting are fighting for the rights of everyone to be secure in their correspondence.
+		<p>My talk today is going to cover a bit of history, some math, and a fair bit of code examples.</p>
+		<p>The underlying motivation in all of this is based in the desire for a group of people to exercise the right best summarized here in article 12 of the UN Declaration of Human Rights</p>
+		<p>Not only are you protected from interference with your correspondence and you privacy but it lists the stakes involved: honor and reputation.</p>
+		<p>The word attack is also really strong language, no where else in the document do you get such strong language.  You mostly see words like deprived, and persectuion.</p>
+		<p>While I'm going to talk a lot about people starting businesses and patent fights between academics, the people doing the fighting are fighting for the rights of everyone to be secure in their correspondence.</p>
 	</aside>
 </section>
 
@@ -251,15 +251,15 @@
 	<h1>☎☈☏</h1>
 	<aside class='notes'>
 		<h1>secure telephony</h1>
-		Mainframes to talk to one another in a secure way.
+		Mainframes needed to talk to one another in a secure way.
 		They also needed a way to store information at rest.
 		Researchers with the assistance of the NSA created a block-cipher which took a fixed block of bytes, and performed multiple rounds of permutations.
 		Specifically the permutations are multiple rounds of shuffling and substitution.
 	</aside>
 </section>
 
-<section>
-	<h1>s-box</h1>
+<section data-background-color='white'>
+	<h1 style='color: black;'>s-box</h1>
 	<img src='img/s-box.png'></img>
 	<aside class='notes'>
 		This is the hardest to understand part of modern symmetric encryption.
@@ -275,13 +275,15 @@
 </section>
 
 <section>
-<pre><code class='hljs'>// des example
-var crypto = require('crypto'); var assert = require('assert')
+	<h1>des example</h1>
+<pre><code class='hljs'>var crypto = require('crypto'); var assert = require('assert')
 var key = 'p4ssw0rd'; var message = 'hello cascadiafest!'
+
 // encrypt
 var cipher = crypto.createCipher('des', key)
 var cipher_text = cipher.update(message, 'utf8', 'hex')
 cipher_text += cipher.final('hex')
+
 // decrypt
 var decipher = crypto.createDecipher('des', key)
 var plain_text = decipher.update(cipher_text, 'hex', 'utf8')
@@ -415,14 +417,14 @@ assert.equal(plain_text, message)
 
 <section>
 	<h1>g<sup>x</sup> mod p = a</h1>
-<pre><code class='hljs'>// a = (g ^ x) mod p
-const crypto = require('crypto');
+<pre><code class='hljs'>const crypto = require('crypto');
 
 // Generate Alice's keys...
 const alice = crypto.createDiffieHellman(2048);
 // or const alice = crypto.getDiffieHellman('modp14');
 const alice_key = alice.generateKeys();
 
+// a = (g ^ x) mod p
 alice_key.getPublicKey()   // a
 alice_key.getGenerator()   // g
 alice_key.getPrivateKey()  // x
@@ -485,7 +487,7 @@ alice_key.getPrime()       // p
 	<h1>hardware company</h1>
 	<aside class='notes'>
 		They felt they had a problem.
-		Customers have to understand how it works in order to know why the need it.
+		Customers have to understand how something works, just a little bit, in order to know why the need it.
 		Symmteric encryption is easy, a key locks and unlocks a door.
 		Asymmetric encryption is college level math.
 		There are mulitple keys, and multiple steps to using them.
@@ -545,17 +547,15 @@ alice_key.getPrime()       // p
 		<h3 style='background-color: rgb(33,66,255)'>private key</h3>
 		<h3 style='background-color: rgb(66,255,66); color: black;'>plain text</h3>
 	</div>
-</div>	<aside class='notes'>
+</div>
+  <aside class='notes'>
+		Laid out like this you can see why one is called asymmetric.
+		The most encounterable implementation of asymmetric crypto is in email.
+		You would take someone else's public key and encrypt a message only they could decrypt.
+		When you do that, if you still want to make the message readable by you - say in your sent folder - you encrypt two copies.  One with their public key, and one with yours.
+		The recipient takes their private key and deciphers the data to recover it.
 	</aside>
 </section>
-
-<!-- <section>
-	<h2>sign</h2>
-	<h3><span style='color: rgb(33,66,255);'>signature</span> = <span style='color: rgb(255,66,66);'>encrypt</span> ( <span style='color: rgb(255,255,66);'>hash</span>( <span style='color: rgb(33,255,66);'>msg</span> ) )</h3>
-	<h1>&nbsp</h1>
-	<h2>verify</h2>
-	<h3><span style='color: rgb(255,255,66);'>hash</span>( <span style='color: rgb(33,255,66);'>msg</span> ) = <span style='color: rgb(255,188,255);'>decrypt</span> ( <span style='color: rgb(33,66,255);'>signature</span> )</h3>
-</section> -->
 
 <section>
 	<div style='width:60%; display: inline-block;'>
@@ -570,15 +570,16 @@ alice_key.getPrime()       // p
 	</div>
 	<aside class='notes'>
 		Another feature of RSA is the signature and verification routines.
-		I can prove I sent an email by taking the contents, hashing them, then encrypting the hash with my private key.
-		You can take my public key and decrypt the hash and compare it with a hash you create of the message contents.
-		If the decrypted hash, and your calculated hash are equal, you can know with certainty that I signed the message
+		Sign and verify are the reverse of what I just described.
+		Instead of you encrypting a message for me using my public key, I encrypt a message for you using my private key.
+		You then verify I sent the message by decrypting the signature with my public key.
+		Only someone with my private key could make a signature that is verified with my public key.
 	</aside>
-
 </section>
 
 
 <section>
+	<h4>sign and verify example</h4>
 <pre><code class='hljs'>const crypto = require('crypto'); const fs = require('fs')
 var private_key = fs.readFileSync('./4096_private.dat')
 var public_key = fs.readFileSync('./4096.pub')
@@ -595,10 +596,9 @@ verify.update(message)
 assert.equal(verify.verify(public_key, signature, 'hex'), true)</code></pre>
 	<aside class='notes'>
 		Here is what I just talked about as code in nodejs.
-		You load the keys.  You have a message.
+		You load the keys, from disk.  You have a message string.
 		You create a sign object and update the object with the message,
-		then you finalize the signature by call sign, passing the private key as the argument
-		you sign with your private key
+		you call the sign method and pass your private key
 		You send your message, your signature, and your public key to the other party
 		the other party can create a verify object, update it with the message
 		then verify the message using the public key and the signature
@@ -622,10 +622,10 @@ openssl rsa -in  4096_private.dat -pubout > 4096.pub
 	<h1>1989</h1>
 	<h1>lotus notes</h1>
 	<aside class='notes'>
-		Back to the story...
-		In 1989 RSA is licensed to be used in Lotus Notes.  They wanted to use a combination
-		of RSA and DES for the encryption but the NSA would not allow them to export DES.
-		So the RSA people invented the RC-2 cipher at two strengths, 64bit and 40 bit.
+		<p>Back to the story... </p>
+		<p>In 1989 RSA is licensed to be used in Lotus Notes.  </p>
+		<p>They wanted to use a combination of RSA and DES for the encryption but the NSA would not allow them to export DES. </p>
+		<p>So the RSA people invented the RC-2 cipher at two strengths, 64bit and 40 bit. </p>
 	</aside>
 </section>
 
@@ -649,11 +649,11 @@ openssl rsa -in  4096_private.dat -pubout > 4096.pub
 
 </code></pre>
 	<aside class='notes'>
-		Remember this slide where I show you how to list the ciphers?
-		Notice the 40 after RC2 and RC4?  Those are export strengths.
-		That is the fingerprints of the politics of the early 90s baked into your node dot js
-		See the 256 on aes?  Those are comparable numbers. 41 is twice as strong as 40, 42 twice 41 and so on up to 256.
-		If the fight against strong encryption is lost you will see the numbers in getCiphers get smaller
+		<p>Remember this slide where I show you how to list the ciphers? </p>
+		<p>Notice the 40 after RC2 and RC4?  Those are export strengths. </p>
+		<p>That is the fingerprints of the politics of the early 90s baked into your node dot js </p>
+		<p>See the 256 on aes?  Those are comparable numbers. 41 is twice as strong as 40, 42 twice 41 and so on up to 256. </p>
+		<p>If the fight against strong encryption is lost you will see the numbers in getCiphers get smaller </p>
 	</aside>
 </section>
 
@@ -661,9 +661,9 @@ openssl rsa -in  4096_private.dat -pubout > 4096.pub
 	<h1>1991</h1>
 	<h1>pgp</h1>
 	<aside class='notes'>
-		we're kind of blasting through the timeline here because you would not believe how long it took for them to write and release this software
-		but pgp version 1.0 released using a combination of RSA and a symmetric cipher called bassomatic
-		yes from the saturday night live sketch
+		<p>we're kind of blasting through the timeline here because you would not believe how long it took for them to write and release this software</p>
+		<p>but pgp version 1.0 released using a combination of RSA and a symmetric cipher called bassomatic</p>
+		<p>yes from the saturday night live sketch</p>
 	</aside>
 </section>
 
@@ -673,6 +673,7 @@ openssl rsa -in  4096_private.dat -pubout > 4096.pub
 	<aside class='notes'>
 		version 2 used stronger RSA keys and a new symmetric cipher called idea
 		or international data encryption algorithm that used a 128 bit key
+		idea was patented but free for non commercial use, the patent expired in 2012
 	</aside>
 </section>
 
@@ -705,12 +706,11 @@ openssl rsa -in  4096_private.dat -pubout > 4096.pub
 <section data-background-image='img/burns_alien.gif'>
 	<h1>key escrow</h1>
 	<aside class='notes'>
-		so rewind a bit...
-		it's 1993 so the whole time they are investigating email and software people for their
-		strong encryption the government is pushing their solution for all this mess,
-		which is key escrow, and later a softened term: key recovery
-		a device called the clipper chip symbolized key escrow
-		it would be built into your phone, and before you could make an encrypted connection with your 2nd party, a 3rd party would be given some or all of the symmetric keys to your encrypted communications
+		<p>so rewind a bit...</p>
+		<p>it's 1993 so the whole time they are investigating email and software people for their strong encryption the government is pushing their solution for all this mess they have created</p>
+		<p>the solution is key escrow,</p>
+		<p>embodied in a device called the clipper chip </p>
+		<p>a clipper chip or something like it would be built into your phone, and before you could make an encrypted connection with your 2nd party, a 3rd party would be given some or all of the symmetric keys to your encrypted communications</p>
 	</aside>
 </section>
 
@@ -721,42 +721,42 @@ openssl rsa -in  4096_private.dat -pubout > 4096.pub
 	<h1>&nbsp</h1>
 	<h1>trust us</h1>
 	<aside class='notes'>
-		so if law enforcement needed the contents of an encrypted wiretap
-		(which would sound like a wall of hissing)
-		they could supoena the key from the 3rd party and get the information they wanted
-		the people proposing this idea constantly harp on this idea of "trust us, if you only knew what we knew"
-		well during this time we got some citizens to review the information the NSA says would say anyone if they could only release it
-		it's bunk
+		<p>so if law enforcement needed the contents of an encrypted wiretap</p>
+		<p>(which would sound like a wall of hissing)</p>
+		<p>they could supoena the key from the 3rd party and get the information they wanted</p>
+		<p>the people proposing this idea constantly harp on this idea of "trust us, if you only knew what we knew"</p>
+		<p>well during this time we got some citizens to review the information the NSA is always teasing</p>
+		<p>the nsa will always come back with: "If you see what we see you would want us doing this, trust us."</p>
+		<p>it's bunk</p>
+		<p>the citizen review panel during this time came back with a big shrug about not much compelling evidence</p>
 	</aside>
 </section>
 
 <section data-background-image='img/homer_otto_catbus.gif'>
 	<h1>nope</h1>
 	<aside class='notes'>
-		nobody wanted on this train, not commerce, not the public
-		not even after the government decided that there would be some flexibility
-		in who the 3rd party was
-		consumers could choose who stored their keys
-		the big idea was that banks would keep them
-		imagine if your API services involved contacting a bank with every transaction
+		<p>nobody wanted on this train, not commerce, not the public</p>
+		<p>not even after the government said consumers could choose who stored their keys</p>
+		<p>the big idea was that banks would keep them</p>
+		<p>imagine if your API services involved contacting a bank with every transaction</p>
 	</aside>
 </section>
 
 <section data-background-image='img/homer_cereal_fail.gif'>
 	<h1></h1>
 	<aside class='notes'>
-		the real nail in the coffin for key escrow was that the implementations failed miserably under the smallest bit of scrutiny
-		on the first day looking researchers were able to bypass the mechanisms that enforced the key escow
-		the first crack meant waiting 40 minutes on hold before the connection was brute forced
-		and faster attacks appeared later
+		<p>the real nail in the coffin for key escrow was that the implementations failed miserably under the smallest bit of scrutiny</p>
+		<p>on the first day looking researchers were able to bypass the mechanisms that enforced the key escow</p>
+		<p>the first crack meant waiting 40 minutes on hold while the connection was brute forced</p>
+		<p>and faster attacks appeared later</p>
 	</aside>
 </section>
 
 <section data-background-image='img/homer_falls_down.gif'>
 	<h1></h1>
 	<aside class='notes'>
-		all of this was taking place in the media and the court of public opinion
-		the moment the news cycle shifted to the idea that the clipper chip is broken and key escrow doesn't work the government drops their pressure
+		<p>all of this was taking place in the media and the court of public opinion</p>
+		<p>the moment the news cycle shifted to the idea that the clipper chip is broken and key escrow doesn't work the government drops their pressure</p>
 	</aside>
 </section>
 
@@ -773,12 +773,11 @@ openssl rsa -in  4096_private.dat -pubout > 4096.pub
 <section data-background-image='img/lisa_meats_hotdog.gif'>
 	<h1>review</h1>
 	<aside class='notes'>
-		before I talk about the threats of today I want to review a few concepts and how they relate
 		crypto is more than just the math, or key generation steps
 		it's the implementation of a set of protocols that define
 		  key generation,
 			key distribution,
-			rings of trust,
+			rings of trust and verification,
 			handshake protocols,
 			trusted and untrusted pipes
 		every step brings with it benefits and drawbacks
@@ -787,15 +786,49 @@ openssl rsa -in  4096_private.dat -pubout > 4096.pub
 		future versions of software have to support the standard that created old messages or those old messages won't be readable
 		your encryption protocol also has to work in the real world, on untrusted networks, that time out... so every step in your protocol needs special attention paid as invisible changes in underlying configurations can leave your implementation weak
 		did your ISP change how packets are routed and now you are leaking your keys?
+		can your software handle untrusted networks or does it expect everyone to be law abiding
 		we trust our ISPs to not attack our connections, but that isn't the case for many internet users
 		people behind the great-firewall in china design their cryptography software to account for different things than we expect on our mostly unrestricted connections
 	</aside>
 </section>
 
-<section data-background-image='img/homer_anticipating.gif'>
+<section data-background-image='img/homer_wave.gif'>
 	<h1>Today</h1>
 	<aside class='notes'>
-		Snoopers charter means logging all your session keys.
+		Snoopers Charter in the UK
+		  logging all your session keys, all of them.
+			Every piece of information for every handshake.
+			Did you download an icon?  That's a unique session key and that needs to be logged and stored for half a year.
+
+	</aside>
+</section>
+
+<section data-background-image='img/dishes.jpg'>
+	<h1>they are watching</h1>
+	<aside class='notes'>
+		This is what we are up against.
+	</aside>
+</section>
+
+<section>
+	<h1></h1>
+	<img src='img/Worldwide_NSA_signals_intelligence.jpg'></img>
+	<aside class='notes'>
+		they are intercepting your data
+	</aside>
+</section>
+
+<section>
+	<h1>real-time attacks</h1>
+	<img src='img/nsa-crack-encryption.png'></img>
+	<aside class='notes'>
+		they can attack your implementations in real-time
+	</aside>
+</section>
+
+<section data-background-image='img/google-cloud-snowden-slide.jpg'>
+	<aside class='notes'>
+		encrypt everything
 	</aside>
 </section>
 
@@ -813,7 +846,7 @@ openssl rsa -in  4096_private.dat -pubout > 4096.pub
 	<h1>&nbsp</h1>
 	<h1>how can you help?</h1>
 	<aside class='notes'>
-
+		by encrypting everything
 	</aside>
 </section>
 

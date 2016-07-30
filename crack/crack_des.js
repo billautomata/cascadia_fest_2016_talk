@@ -1,13 +1,17 @@
 var bignum = require('bignum')
 var Buffer = require('buffer').Buffer
 var crypto = require('crypto')
+var EventEmitter = require('events')
+
+var ticker = new EventEmitter()
+
 
 console.log('starting')
 
 var bits = 56
 var bytes = Math.ceil(bits/8)
 
-bits = 24
+bits = 20
 
 var _time = Date.now()
 var key = bignum.rand(bignum(1).shiftLeft(bits)).toBuffer()
@@ -28,11 +32,13 @@ var compare = correct_decipher.update(cipher_text, 'hex', 'utf8')
 compare += correct_decipher.final('utf8')
 
 var current_crack_index = bignum(1)
+ticker.on('tock', tick)
+
 tick()
 
 function tick(){
   var found = false
-  for(var i = 0; i < 10000; i++){
+  for(var i = 0; i < 1000; i++){
     if(current_crack_index.mod(100000).eq(0)){
       console.log(current_crack_index.toNumber())
       var _delta = Date.now() - _time
@@ -52,6 +58,10 @@ function tick(){
     current_crack_index = current_crack_index.add(1)
   }
   if(!found){
-    setTimeout(tick,0)
+    // setTimeout(tick,0)
+    setImmediate(tick)
+    // setImmediate(function(){
+    //   ticker.emit('tock')
+    // })
   }
 }
