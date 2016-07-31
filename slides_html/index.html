@@ -140,23 +140,23 @@
 	<h1>&nbsp</h1>
 	<h4>1949</h4>
 	<aside class='notes'>
-		people responsible for making ciphers strong were very much at a disadvantage until 1949 with the advent of information theory
-		mathematicians formalized the tools necessary to describe information transfer, storage, compression
-		the language necessary to describe modern cryptosystems was invented in 1949
+		<p>people responsible for making ciphers strong were very much at a disadvantage until 1949 with the advent of information theory</p>
+		<p>mathematicians formalized the tools necessary to describe information transfer, storage, compression</p>
+		<p>the language necessary to describe modern cryptosystems was invented in 1949</p>
 	</aside>
 </section>
 
 <section data-background-image='img/burns_snake.gif'>
 	<h3>1951 - 1970</h3>
 	<aside class='notes'>
-		Not long after, in 1951 the NSA is founded.
-		During this period the NSA is feeling good.
-		Anyone who wants to work on cryptography goes and works for them.
-		They control the funding mechanisms for cryptography.
-		They can also delcare patent applications to be classified in the name of national security.
-		All the knowledge is kept by them.
-		They built cryptosystems to be used by spies and the military.
-		If you wanted to work on these things you needed to agree with the philosophy behind those organizations.
+		<p>Not long after, in 1951 the NSA is founded.</p>
+		<p>During this period the NSA is feeling good.</p>
+		<p>Anyone who wants to work on cryptography goes and works for them.</p>
+		<p>They control the funding mechanisms for cryptography.</p>
+		<p>They can also delcare patent applications to be classified in the name of national security.</p>
+		<p>All the knowledge is kept by them.</p>
+		<p>They built cryptosystems to be used by spies and the military.</p>
+		<p>If you wanted to work on these things you needed to agree with the philosophy behind those organizations.</p>
 	</aside>
 </section>
 
@@ -174,12 +174,12 @@
 	<h1>&nbsp</h1>
 	<h1>DES</h1>
 	<aside class='notes'>
-		In 1975 we get DES.
-		DES is the first serious attempt at a widespread standard for data security.
-		It was successfully impelmented in chip, which made it easy to sell and use.
-		An example of a DES impelmentation is HBO used DES to scramble the signal when transmitting it over satellite.
-		Even though the NSA was involved in the design of the cipher, the only real weakness in DES is that it shipped with a 56 bit key strength.
-		The designers wanted a 128 bit length key, but hardware concerns limited it to 64 bit, and government interference got it down to 56 bits.
+		<p>In 1975 we get DES.</p>
+		<p>DES is the first serious attempt at a widespread standard for data security.</p>
+		<p>It was successfully impelmented in chip, which made it easy to sell and use.</p>
+		<p>An example of a DES impelmentation is HBO used DES to scramble the signal when transmitting it over satellite.</p>
+		<p>Even though the NSA was involved in the design of the cipher, the only real weakness in DES is that it shipped with a 56 bit key strength.</p>
+		<p>The designers wanted a 128 bit length key, but hardware concerns limited it to 64 bit, and government interference got it down to 56 bits.</p>
 	</aside>
 </section>
 
@@ -216,11 +216,11 @@
 		<h3 style='background-color: rgb(66,255,66); color: black;'>plain text</h3>
 	</div>
 	<aside class='notes'>
-		Symmetric cryptography is the easier to understand type of encryption.
-		You have a key and an scrambling algorithm.
-		You combine your data, the key, and the algorithm and you scramble your data.
-		The recipient takes the same key and a reverse process to unscramble the data to recover the plaintext
-		If you can keep the key secret, this works really well.
+		<p>Symmetric cryptography is the easier to understand type of encryption.</p>
+		<p>You have a key and an scrambling algorithm.</p>
+		<p>You combine your data, the key, and the algorithm and you scramble your data.</p>
+		<p>The recipient takes the same key and a reverse process to unscramble the data to recover the plaintext</p>
+		<p>If you can keep the key secret, this works really well.</p>
 	</aside>
 </section>
 
@@ -249,12 +249,12 @@
 
 <section data-background-image='img/burns_phone.gif'>
 	<h1>☎☈☏</h1>
+	<h1>secure telephony</h1>
 	<aside class='notes'>
-		<h1>secure telephony</h1>
-		Mainframes needed to talk to one another in a secure way.
-		They also needed a way to store information at rest.
-		Researchers with the assistance of the NSA created a block-cipher which took a fixed block of bytes, and performed multiple rounds of permutations.
-		Specifically the permutations are multiple rounds of shuffling and substitution.
+		<p>Big Mainframes needed secure communications.</p>
+		<p>They also needed a way to store information at rest.</p>
+		<p>Researchers with the assistance of the NSA created a block-cipher which took a fixed block of bytes, and performed multiple rounds of permutations.</p>
+		<p>Specifically the permutations are multiple rounds of shuffling and substitution.</p>
 	</aside>
 </section>
 
@@ -262,15 +262,15 @@
 	<h1 style='color: black;'>s-box</h1>
 	<img src='img/s-box.png'></img>
 	<aside class='notes'>
-		This is the hardest to understand part of modern symmetric encryption.
-		Each round of encryption you take a chunk of bytes, and perform a lookup operation with the values themselves.
-		You take your current value, and use it to find the new value.
-		Your chunk is 68. Go find (6, 8) > 45.  Now next round your chunk is 45.
-		Do that 12 or 16 times combined with a shuffle operation after each step and you have the makings of a strong block cipher.
-		These s-boxes are hardcoded, and the values in the s-boxes are what makes them strong.
-		The NSA provided the s-boxes for DES.
-		Since the operation is so complex there is no way to verify that there is no hidden trap door in the s-box
-		Does the NSA have a special set of decoder s-boxes that allow them to more quickly guess your key?
+		<p>This is the hardest to understand part of modern symmetric encryption.</p>
+		<p>Each round of encryption you take a chunk of bytes, and perform a lookup operation with the values themselves.</p>
+		<p>You take your current value, and use it to find the new value.</p>
+		<p>Your chunk is 68. Go find (6, 8) > 45.  Now next round your chunk is 45.</p>
+		<p>Do that 12 or 16 times combined with a shuffle operation after each step and you have the makings of a strong block cipher.</p>
+		<p>These s-boxes are hardcoded, and the values in the s-boxes are what makes them strong.</p>
+		<p>The NSA provided the s-boxes for DES.</p>
+		<p>Since the operation is so complex there is no way to verify that there is no hidden trap door in the s-box</p>
+		<p>Does the NSA have a special set of decoder s-boxes that allow them to more quickly guess your key?</p>
 	</aside>
 </section>
 
@@ -292,10 +292,10 @@ plain_text += decipher.final('utf8')
 assert.equal(plain_text, message)
 </code></pre>
 	<aside class='notes'>
-		So back to DES... it was a hit, we still use a version of it today.
-		Even thoug hthe NSA reduced the key size in their recommendation, it was secure and widespread.
-		It put cryptography outside of the realm of the military and spies.
-		It is about to become an industry.
+		<p>So back to DES... it was a hit, we still use a version of it today.</p>
+		<p>Even thoug hthe NSA reduced the key size in their recommendation, it was secure and widespread.</p>
+		<p>It put cryptography outside of the realm of the military and spies.</p>
+		<p>It is about to become an industry.</p>
 	</aside>
 </section>
 
@@ -303,8 +303,8 @@ assert.equal(plain_text, message)
 	<h1>late 1970s</h1>
 	<h1><br><br><br><br></h1>
 	<aside class='notes'>
-		This got everyone thinking hard about everything to do with codes and ciphers.
-		Where can we apply these ideas and make money?
+		<p>This got everyone thinking hard about everything to do with codes and ciphers.</p>
+		<p>Where can we apply these ideas and make money?</p>
 	</aside>
 </section>
 
@@ -314,9 +314,9 @@ assert.equal(plain_text, message)
 	<h1>&nbsp</h1>
 	<h1>1976</h1>
 	<aside class='notes'>
-		It wasn't all commerce and banking.  A bunch of these types of folks got involved.
-		Californians...
-		Whit Diffie and Martin Hellman published a seminal paper on public key cryptography.
+		<p>It wasn't all commerce and banking.  A bunch of these types of folks got involved.</p>
+		<p>Californians...</p>
+		<p>Whit Diffie and Martin Hellman published a seminal paper on public key cryptography.</p>
 	</aside>
 </section>
 
@@ -324,8 +324,11 @@ assert.equal(plain_text, message)
 	<h1><strike>symmetric</strike></h1>
 	<h1>asymmetric encryption</h1>
 	<aside class='notes'>
-		They and a bunch of smart folks focused on the most obvious limitations of symmetric crypto which is that no matter how strong the cipher is your key can be leaked.
-		Their solution is to break the key up into two parts.  Where one part could be leaked, or even publicized.  And one part would be kept secret.  All you would need to send a person a message is their publicly available information.  You combine that with your private information, and that can establish a secure communication channel.
+		<p>They and a bunch of smart folks focused on the most obvious limitations of symmetric crypto which is that no matter how strong the cipher is your key can be leaked.</p>
+		<p>Their solution is to break the key up into two parts.</p>
+		<p>Where one part could be leaked, or even publicized.  And one part would be kept secret.  </p>
+		<p>All you would need to send a person a message is their publicly available information.</p>
+		<p>You combine that with your private information, and that can establish a secure communication channel.</p>
 	</aside>
 </section>
 
@@ -342,9 +345,9 @@ assert.equal(plain_text, message)
 	<h1>c = a - b</h1>
 	<h3>easy</h3>
 	<aside class='notes'>
-		this isn't a two-way function, that's something else entirely, these are examples of not one-way-functions
-		given components of one equation you can derive all the other fields by performing inversed operations
-		easy stuff
+		<p>this isn't a two-way function, that's something else entirely, these are examples of not one-way-functions</p>
+		<p>given components of one equation you can derive all the other fields by performing inversed operations</p>
+		<p>easy stuff</p>
 	</aside>
 </section>
 
@@ -405,13 +408,13 @@ assert.equal(plain_text, message)
 		<span style='color: rgb(255,66,33);'>c
 	</h1>
 	<aside class='notes'>
-		so this is the key exchange
-		one person picks a value for X and publishes the pub1 value
-		another person picks their own exponent value, Y, and publishes the pub2 value
-		person 1 takes pub2 and their exponent and arrives at c
-		the other person does the same but with their respective bits and arrives at the same C value
-		the only way for a 3rd party to derive C given PUB1 and PUB2 is to guess X or Y
-		if your X or Y values are big enough that's just infeasible
+		<p>so this is the key exchange</p>
+		<p>one person picks a value for X and publishes the pub1 value</p>
+		<p>another person picks their own exponent value, Y, and publishes the pub2 value</p>
+		<p>person 1 takes pub2 and their exponent and arrives at c</p>
+		<p>the other person does the same but with their respective bits and arrives at the same C value</p>
+		<p>the only way for a 3rd party to derive C given PUB1 and PUB2 is to guess X or Y</p>
+		<p>if your X or Y values are big enough that's just infeasible</p>
 	</aside>
 </section>
 
@@ -429,11 +432,14 @@ alice_key.getPublicKey()   // a
 alice_key.getGenerator()   // g
 alice_key.getPrivateKey()  // x
 alice_key.getPrime()       // p
+
+// shared secret
+alice_key.computeSecret(bob.getPublicKey())
 </code></pre>
 	<aside class='notes'>
-		this is all that information I just described in node.js code
-		diffie hellman is a very simple algorithm, it does not have many components
-		publishing your diffie hellman public key is really just posting the result of a math equation
+	  <p>this is all that information I just described in node.js code</p>
+		<p>diffie hellman does not have many components</p>
+		<p>publishing your diffie hellman public key is really just posting the result of a math equation</p>
 	</aside>
 </section>
 
@@ -443,17 +449,18 @@ alice_key.getPrime()       // p
 	<h1>&nbsp</h1>
 	<h1>shared secret</h1>
 	<aside class='notes'>
-		Diffie Hellman itself does not do any encryption.
-		It just lets two parties arrive at a shared number given each others public numbers.
+	  <p>Diffie Hellman itself describe any encryption techniques.</p>
+		<p>It just lets two parties arrive at a shared number given each others public numbers.</p>
+		<p>Asymmetric cryptography solves the problem of having to transmit your symmteric key to the other party.</p>
+		<p>Your shared secret is the key you need to keep secret.</p>
 	</aside>
 </section>
 
 <section data-background-image='img/cat_fire.gif'>
 	<h1></h1>
 	<aside class='notes'>
-		You combine the shared secret, the result of doing asymmetric cryptography with your symmteric cipher.
-		Your shared secret is the key you need to keep secret.
-		Asymmtric cryptography solves the problem of having to transmit your symmteric key to the other party.
+		<p>Your shared secret is the key to your symmetric cipher.</p>
+		<p>All modern cryptosystems are combinations of symmetric and asymmteric crypto.</p>
 	</aside>
 </section>
 
@@ -462,10 +469,10 @@ alice_key.getPrime()       // p
 	<h1>rsa 1977</h1>
 	<h1>(dsa 1991)</h1>
 	<aside class='notes'>
-		After the Diffie Hellman key exchange paper was published, the RSA algorithm was published.
-		RSA took DH a few steps further beyond key generation and exchange protocol.
-		It also defined an encryption and decryption mechanism.
-		This slide also honorably mentions DSA which is a signature only algorithm invented by the NSA in 1991
+		<p>After the Diffie Hellman key exchange paper was published, the RSA algorithm was published.</p>
+		<p>RSA took DH a few steps further beyond key generation and exchange protocol.</p>
+		<p>It also defined an encryption and decryption mechanism.</p>
+		<p>This slide also honorably mentions DSA which is a signature only algorithm invented by the NSA in 1991</p>
 	</aside>
 </section>
 
@@ -476,9 +483,9 @@ alice_key.getPrime()       // p
 	<h1>RSA Security Inc</h1>
 	<h1>founded, 1982</h1>
 	<aside class='notes'>
-		RSA founded to commercialize public key encryption.
-		They negotiated use of the patent from MIT and set to work.
-		Note: The patent on RSA expired in september of 2000.
+		<p>In 1982 RSA founded to commercialize public key encryption.</p>
+		<p>They negotiated use of the patent from MIT and set to work.</p>
+		<p>Note: The patent on RSA expired in september of 2000.</p>
 	</aside>
 </section>
 
@@ -486,15 +493,17 @@ alice_key.getPrime()       // p
 <h1>1983</h1>
 	<h1>hardware company</h1>
 	<aside class='notes'>
-		They felt they had a problem.
-		Customers have to understand how something works, just a little bit, in order to know why the need it.
-		Symmteric encryption is easy, a key locks and unlocks a door.
-		Asymmetric encryption is college level math.
-		There are mulitple keys, and multiple steps to using them.
-		Your key becomes a different key when used in someone else's lock.
-		Everyone shares a different secret.
-		RSA wanted to simpifly things.  Put it on a chip.  Ship it in a box.
-		It didn't work.
+	<p>They felt they had a problem.</p>
+		<p>Customers could not understand their product.</p>
+		<p>Symmteric encryption is easy, a key locks and unlocks a door.</p>
+	<p>Asymmetric encryption is college level math.</p>
+		<p>There are mulitple keys, and multiple steps to using them.</p>
+		<p>Your key becomes a different key when used in someone else's lock.</p>
+		<p>Everyone shares a different secret.</p>
+		<p>RSA wanted to simpifly things.  Put it on a chip.  Ship it in a box.</p>
+		</p>It didn't work.  </p>
+		</p>It would have been one of the most complicated single chip design by a factor of 10</p>
+		<p>it came off the line and didn't work at all</p>
 	</aside>
 </section>
 
@@ -614,7 +623,7 @@ openssl rsa -in  4096_private.dat -pubout > 4096.pub
 </code></pre>
 	<aside class='notes'>
 		node core doesn't let you create rsa keys
-		it expect you to have run openssl and use static keys
+		it expects you to have run the openssl command and use static keys
 	</aside>
 </section>
 
