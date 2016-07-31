@@ -773,40 +773,41 @@ openssl rsa -in  4096_private.dat -pubout > 4096.pub
 <section data-background-image='img/lisa_meats_hotdog.gif'>
 	<h1>review</h1>
 	<aside class='notes'>
-		crypto is more than just the math, or key generation steps
-		it's the implementation of a set of protocols that define
+		<p>crypto is more than just the math, or key generation steps</p>
+		<p>it's the implementation of a set of protocols that define
 		  key generation,
 			key distribution,
 			rings of trust and verification,
 			handshake protocols,
-			trusted and untrusted pipes
-		every step brings with it benefits and drawbacks
-		you can't just say "Oh I'll use RSA and AES" and leave it at that
-		all the parties have to agree on every detail or things don't work at all
-		future versions of software have to support the standard that created old messages or those old messages won't be readable
-		your encryption protocol also has to work in the real world, on untrusted networks, that time out... so every step in your protocol needs special attention paid as invisible changes in underlying configurations can leave your implementation weak
-		did your ISP change how packets are routed and now you are leaking your keys?
-		can your software handle untrusted networks or does it expect everyone to be law abiding
-		we trust our ISPs to not attack our connections, but that isn't the case for many internet users
-		people behind the great-firewall in china design their cryptography software to account for different things than we expect on our mostly unrestricted connections
+			trusted and untrusted pipes</p>
+		<p>every step brings with it benefits and drawbacks</p>
+		<p>you can't just say "Oh I'll use RSA and AES" and leave it at that</p>
+		<p>all the parties have to agree on every detail or things don't work at all</p>
+		<p>future versions of software have to support the standard that created old messages or those old messages won't be readable</p>
+		<p>your encryption protocol also has to work in the real world, on untrusted networks, that time out... so every step in your protocol needs special attention paid as invisible changes in underlying configurations can leave your implementation weak</p>
+		<p>did your ISP change how packets are routed and now you are leaking your keys?</p>
+		<p>can your software handle untrusted networks or does it expect everyone to be law abiding</p>
+		<p>we trust our ISPs to not attack our connections, but that isn't the case for many internet users</p>
 	</aside>
 </section>
 
 <section data-background-image='img/homer_wave.gif'>
 	<h1>Today</h1>
 	<aside class='notes'>
-		Snoopers Charter in the UK
-		  logging all your session keys, all of them.
-			Every piece of information for every handshake.
-			Did you download an icon?  That's a unique session key and that needs to be logged and stored for half a year.
-
+		<p>The FBI didn't ask Apple for some master key.</p>
+		<p>The FBI asked Apple to build a version of IOS that breaks their implementation.</p>
+		<p>Snoopers Charter in the UK would require you to log all your sessions, every piece of information for every handshake, did you download an icon?  That's a unique session key and that needs to be logged and stored for half a year.</p>
+		<p>In Russia the new law is a year of retention and they are seizing hardware of vpn providers.</p>
+		<p></p>
 	</aside>
 </section>
 
 <section data-background-image='img/dishes.jpg'>
 	<h1>they are watching</h1>
 	<aside class='notes'>
-		This is what we are up against.
+		<p>This is what we are up against.</p>
+		<p>It is pervasive surveillance.</p>
+		<p>they will build arrays of antennas in backwater nowheres just to get better coverage of the sky</p>
 	</aside>
 </section>
 
@@ -814,7 +815,9 @@ openssl rsa -in  4096_private.dat -pubout > 4096.pub
 	<h1></h1>
 	<img src='img/Worldwide_NSA_signals_intelligence.jpg'></img>
 	<aside class='notes'>
-		they are intercepting your data
+		<p>they are intercepting your data at almost every opportunity</p>
+		<p>you may trust your government at it's highest levels but many programs live in a gray area from previous administrations</p>
+		<p>just because the new better person is in the white house doesn't mean that general with the nasty motivation has been replaced</p>
 	</aside>
 </section>
 
@@ -822,13 +825,106 @@ openssl rsa -in  4096_private.dat -pubout > 4096.pub
 	<h1>real-time attacks</h1>
 	<img src='img/nsa-crack-encryption.png'></img>
 	<aside class='notes'>
-		they can attack your implementations in real-time
+		<p>they can attack your implementations in real-time</p>
+		<p>I wanted to do some live cracking but I couldn't make it not a waste of time</p>
+		<p>how many of you already spend a large portion of your lives sitting in front of tasks watching them go to 100% completion</p>
+		<p>I included code in the repo for the talk that lets you crack your own keys at different strengths so you can do this when there is more time</p>
+		<p>I will describe what it means to crack some keys</p>
 	</aside>
 </section>
 
+<section data-background-image='img/Board300.jpg'>
+	<h1></h1>
+	<aside class='notes'>
+		<p>this is a machine built by the EFF to demonstrate how cheap it would be to crack DES</p>
+		<p>this is how you attack symmteric cryptography, with custom hardware</p>
+		<p>the hardware searches the key space and compares the output to a set of parameters</p>
+		<p>if you are expecting to see ascii text you would pipe the output to a detector software and review all the tries that had only ascii</p>
+	</aside>
+</section>
+
+<section>
+	<h1>cracking DH</h1>
+	<h5>diffie-hellman key exchange</h5>
+	<h1><span style='color: rgb(33,255,66);'>g</span><sup style='color: rgb(255,33,66);'>x</sup> mod <span style='color: rgb(33,255,66);'>p</span> = public</h1>
+	<aside class='notes'>
+		<p>Diffie Hellman is super easy to crack in that all you have to do is guess X</p>
+		<p>You verify you got X correct by running the equation, and if you get the public number you got X correct</p>
+		<p>this is made easier by the fact that almost everyone uses standard values for g and p</p>
+		<p>they are published as a standard, diffie hellman group 14 specifies 2048 bit values for g and p</p>
+
+	</aside>
+</section>
+
+<section>
+	<h1><span style='color: rgb(33,255,66);'>g</span><sup style='color: rgb(255,33,66);'>1</sup> mod <span style='color: rgb(33,255,66);'>p</span> = 998</h1>
+	<h1><span style='color: rgb(33,255,66);'>g</span><sup style='color: rgb(255,33,66);'>2</sup> mod <span style='color: rgb(33,255,66);'>p</span> = 861</h1>
+	<h1><span style='color: rgb(33,255,66);'>g</span><sup style='color: rgb(255,33,66);'>3</sup> mod <span style='color: rgb(33,255,66);'>p</span> = 320</h1>
+	<h1><span style='color: rgb(33,255,66);'>g</span><sup style='color: rgb(255,33,66);'>4</sup> mod <span style='color: rgb(33,255,66);'>p</span> = 118</h1>
+	<aside class='notes'>
+		<p>the reason it's easier crack if everyone uses the same g and p values is because you can precompute all the values for X ahead of time, so when you see a public number in the wild you already have the X value</p>
+	</aside>
+</section>
+
+<section data-background-image='img/Titan_render.png'>
+	<h1>&nbsp</h1>
+	<h1>&nbsp</h1>
+	<h1>&nbsp</h1>
+	<h1>super computers</h1>
+	<aside class='notes'>
+		<p>our largest supercomputers spend a lot of time doing this work</p>
+		<p>odds are some of your most mundane traffic has been cracked by some of the most sophisticated computing rigs, then dropped on the floor</p>
+	</aside>
+</section>
+
+<section>
+	<h1>weakdh.org</h1>
+	<aside class='notes'>
+		<p>there is a lot more info about attacking diffie hellman at this website</p>
+	</aside>
+</section>
+
+
+<section>
+	<h1>cracking rsa</h1>
+	<h2><span style='color: rgb(255,255,66);'>PT</span> = <span style='color: rgb(33,255,66);'>CT</span><sup style='color: rgb(255,66,33);'>D</sup> mod <span  style='color: rgb(33,66,255);'>n</span></h2>
+	<h2>
+		<span style='color: rgb(255,66,33);'>private key (d)</span>
+		<span style='color: rgb(33,66,255);'>public key (n)</span>
+	</h2>
+	<h1><span style='color: rgb(33,66,255)'>n</span> = p * q</h1>
+	<h1><span style='color: rgb(255,66,33);'>d</span> = φ(p, q)</h1>
+	<aside class='notes'>
+		<p>cracking RSA is about attacking the key generation routine</p>
+		<p>I didn't describe the key generation, but it all starts with two big prime numbers p and q</p>
+		<p>you get your public key by mutiplying them together, and the strength comes from the fact that there are only one p and q for your n </p>
+		<p>the p and q values are also fed into a function that outputs the private key</p>
+		<p>so if you can factor N and recover p and q, you can compute the value for D and start decoding traffic</p>
+	</aside>
+</section>
+
+
 <section data-background-image='img/google-cloud-snowden-slide.jpg'>
 	<aside class='notes'>
-		encrypt everything
+		<p>The awful thing is that they don't even need to spend millions of dollars decrypting your stuff.</p>
+		<p>We transfer it in plaintext in trusted environments.</p>
+		<p>How many of your web services are only http behind the nginx?</p>
+	</aside>
+</section>
+
+<section data-background-image='img/future_spin.gif'>
+	<h1>&nbsp</h1>
+	<h1>&nbsp</h1>
+	<h1 style='color: rgb(66,255,66);'>how can you help?</h1>
+	<aside class='notes'>
+		<p>encrypt everything</p>
+		<p>in your standups at work ask your peers what are they doing to encrypt customer data</p>
+		<p>then tell your customers that you are doing it</p>
+		<p>security is an afterthought to customers, try to educate them</p>
+		<p>if you are an indie dev, build encryption into your libraries and modules</p>
+		<p>publicize the fact that your layers are encrypted</p>
+		<p>let people drop in their values for their keys, don't leave it up to them</p>
+		<p>in fact, make it mandatory, throw an error</p>
 	</aside>
 </section>
 
@@ -841,14 +937,6 @@ openssl rsa -in  4096_private.dat -pubout > 4096.pub
 </section>
 
 
-<section data-background-image='img/future_spin.gif'>
-	<h1>&nbsp</h1>
-	<h1>&nbsp</h1>
-	<h1>how can you help?</h1>
-	<aside class='notes'>
-		by encrypting everything
-	</aside>
-</section>
 
 
 <section data-background-image='img/pizza_ception.gif'>
