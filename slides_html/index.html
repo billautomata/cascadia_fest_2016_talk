@@ -861,8 +861,6 @@ openssl rsa -in  4096_private.dat -pubout > 4096.pub
 	<aside class='notes'>
 		<p>Diffie Hellman is super easy to crack in that all you have to do is guess X</p>
 		<p>You verify you got X correct by running the equation, and if you get the public number you got X correct</p>
-		<p>this is made easier by the fact that almost everyone uses standard values for g and p</p>
-		<p>they are literally published as a standard, diffie hellman group 14 specifies 2048 bit values for g and p</p>
 	</aside>
 </section>
 
@@ -872,9 +870,10 @@ openssl rsa -in  4096_private.dat -pubout > 4096.pub
 	<h1><span style='color: rgb(33,255,66);'>g</span><sup style='color: rgb(255,33,66);'>3</sup> mod <span style='color: rgb(33,255,66);'>p</span> = 320</h1>
 	<h1><span style='color: rgb(33,255,66);'>g</span><sup style='color: rgb(255,33,66);'>4</sup> mod <span style='color: rgb(33,255,66);'>p</span> = 118</h1>
 	<aside class='notes'>
-		<p>since most everyone uses the same g and p values in diffie hellman</p>
-		<p>means you can precompute all the values for X ahead of time</p>
+		<p>most everyone uses the same g and p values in diffie hellman</p>
 		<p>there are many possible numbers for G and P, but people correctly use the standard numbers for the different bit sizes</p>
+		<p>they are literally published as a standard, diffie hellman group 14 specifies 2048 bit values for g and p</p>
+		<p>this means means you can precompute all the values for X ahead of time</p>		
 		<p>so when you see a public number in the wild you may have already computed the X value and saved it somewhere</p>
 	</aside>
 </section>
@@ -931,12 +930,12 @@ openssl rsa -in  4096_private.dat -pubout > 4096.pub
 	<h1 style='color: rgb(66,255,66);'>how can you help?</h1>
 	<aside class='notes'>
 		<p>encrypt everything</p>
-		<p>in your standups at work ask your peers what are they doing to encrypt customer data</p>
-		<p>then tell your customers that you are doing it</p>
+		<p>in your standups at work ask your peers what are they're doing to encrypt customer data</p>
+		<p>then tell your customers that you are doing it, write a blog post about it</p>
 		<p>security is an afterthought to customers, try to educate them</p>
 		<p>if you are an indie dev, build encryption into your libraries and modules</p>
-		<p>publicize the fact that your layers are encrypted</p>
-		<p>let people drop in their values for their keys, don't leave it up to them</p>
+		<p>publicize the fact that your communication layers are encrypted</p>
+		<p>make it easy for people to load their keys, give them examples</p>
 		<p>in fact, make it mandatory, throw an error if they don't encrypt</p>
 		<p>imagine if node dropped support for unencrypted http</p>
 	</aside>
