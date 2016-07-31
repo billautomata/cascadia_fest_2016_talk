@@ -862,8 +862,7 @@ openssl rsa -in  4096_private.dat -pubout > 4096.pub
 		<p>Diffie Hellman is super easy to crack in that all you have to do is guess X</p>
 		<p>You verify you got X correct by running the equation, and if you get the public number you got X correct</p>
 		<p>this is made easier by the fact that almost everyone uses standard values for g and p</p>
-		<p>they are published as a standard, diffie hellman group 14 specifies 2048 bit values for g and p</p>
-
+		<p>they are literally published as a standard, diffie hellman group 14 specifies 2048 bit values for g and p</p>
 	</aside>
 </section>
 
@@ -873,7 +872,10 @@ openssl rsa -in  4096_private.dat -pubout > 4096.pub
 	<h1><span style='color: rgb(33,255,66);'>g</span><sup style='color: rgb(255,33,66);'>3</sup> mod <span style='color: rgb(33,255,66);'>p</span> = 320</h1>
 	<h1><span style='color: rgb(33,255,66);'>g</span><sup style='color: rgb(255,33,66);'>4</sup> mod <span style='color: rgb(33,255,66);'>p</span> = 118</h1>
 	<aside class='notes'>
-		<p>the reason it's easier crack if everyone uses the same g and p values is because you can precompute all the values for X ahead of time, so when you see a public number in the wild you already have the X value</p>
+		<p>since most everyone uses the same g and p values in diffie hellman</p>
+		<p>means you can precompute all the values for X ahead of time</p>
+		<p>there are many possible numbers for G and P, but people correctly use the standard numbers for the different bit sizes</p>
+		<p>so when you see a public number in the wild you may have already computed the X value and saved it somewhere</p>
 	</aside>
 </section>
 
@@ -919,7 +921,7 @@ openssl rsa -in  4096_private.dat -pubout > 4096.pub
 	<aside class='notes'>
 		<p>The awful thing is that they don't even need to spend millions of dollars decrypting your stuff.</p>
 		<p>We transfer it in plaintext in trusted environments.</p>
-		<p>How many of your web services are only http behind the nginx?</p>
+		<p>How many of your services are only secure once they hit nginx?</p>
 	</aside>
 </section>
 
@@ -935,7 +937,8 @@ openssl rsa -in  4096_private.dat -pubout > 4096.pub
 		<p>if you are an indie dev, build encryption into your libraries and modules</p>
 		<p>publicize the fact that your layers are encrypted</p>
 		<p>let people drop in their values for their keys, don't leave it up to them</p>
-		<p>in fact, make it mandatory, throw an error</p>
+		<p>in fact, make it mandatory, throw an error if they don't encrypt</p>
+		<p>imagine if node dropped support for unencrypted http</p>
 	</aside>
 </section>
 
@@ -944,11 +947,18 @@ openssl rsa -in  4096_private.dat -pubout > 4096.pub
 	<h1>&nbsp</h1>
 	<h1>&nbsp</h1>
 	<aside class='notes'>
+		<p>I'm not sure really.  I just kind of wanted to have this slide and linger a bit...</p>
+		<p>Quantum Computers are a real thing and they will eventually crack meaningful RSA keys</p>
+		<p>Bad guys are collecting all the traffic they see and waiting for the day the skeleton key comes along that opens it up.</p>
+		<p>An email from 10 years ago is still relevant if you are still mad about the thing that happened 10 years ago</p>
+		<p>All you can do is try to not be an easy target.</p>
+		<p>If you have plaintext flowing around, you are an easy target</p>
+		<p>At the lowest level it is someone's crappy job to spy on you.  Some contractor has to pour over your data and find your alternate email address and world of warcraft username</p>
+		<p>If you make it a little bit harder for them, they will give up</p>
+		<p>If literally everyone used Tor and PGP and OTR Messaging our intelligence services would invest more money in human resources instead of mass surveillance.</p>
+		<p>If it wasn't so easy for them to scoop up everything and call it a good day's work they would have better intelligence instead of the deluge of plaintext we provide them</p>
 	</aside>
 </section>
-
-
-
 
 <section data-background-image='img/pizza_ception.gif'>
 	<h1>thank you</h1>
