@@ -3,9 +3,6 @@ var Buffer = require('buffer').Buffer
 var crypto = require('crypto')
 var EventEmitter = require('events')
 
-var ticker = new EventEmitter()
-
-
 console.log('starting')
 
 var bits = 56
@@ -25,14 +22,13 @@ var message = 'The message we want to crack.'
 
 var cipher_text = des_cipher.update(message,'utf8','hex')
 cipher_text += des_cipher.final('hex')
-console.log(cipher_text)
+console.log('cipher text', cipher_text)
 
 var correct_decipher = crypto.createDecipher('des', key)
 var compare = correct_decipher.update(cipher_text, 'hex', 'utf8')
 compare += correct_decipher.final('utf8')
 
 var current_crack_index = bignum(1)
-ticker.on('tock', tick)
 
 tick()
 
@@ -40,9 +36,8 @@ function tick(){
   var found = false
   for(var i = 0; i < 1000; i++){
     if(current_crack_index.mod(100000).eq(0)){
-      console.log(current_crack_index.toNumber())
       var _delta = Date.now() - _time
-      console.log(Number(current_crack_index.toNumber()/(_delta/1000)).toFixed(0),'keys per second')
+      console.log('checking',current_crack_index.toNumber(),Number(current_crack_index.toNumber()/(_delta/1000)).toFixed(0),'keys per second')
     }
     var bad_key = bignum(current_crack_index).toBuffer()
     try {
@@ -58,10 +53,6 @@ function tick(){
     current_crack_index = current_crack_index.add(1)
   }
   if(!found){
-    // setTimeout(tick,0)
     setImmediate(tick)
-    // setImmediate(function(){
-    //   ticker.emit('tock')
-    // })
   }
 }
