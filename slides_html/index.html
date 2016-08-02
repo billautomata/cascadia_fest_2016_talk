@@ -51,15 +51,16 @@
 		<div>against such interference or attacks.</div>
 	</q>
 	<aside class='notes'>
-		<p>My talk today is going to cover a bit of history, some math, and a fair bit of code examples.</p>
-		<p>The underlying motivation in all of this is based in the desire for a group of people to exercise the right best summarized here in article 12 of the UN Declaration of Human Rights</p>
-		<p>Not only are you protected from interference with your correspondence and you privacy but it lists the stakes involved: honor and reputation.</p>
-		<p>The word attack is also really strong language, no where else in the document do you get such strong language.  You mostly see words like deprived, and persectuion.</p>
+		<p>My talk today is going to cover a bit of history, some math, and a fair bit of code examples</p>
+		<p>the title of the talk is about how a part of the node core relates to human rights</p>
+		<p>here is a relevant passage from the UN declaration of human rights</p>
+		<p>there are a lot of versions of this in different rights declarations, europe has one, the us, canada has verbiage about this</p>
+		<p>I like the UN version because it uses the word attack, which is really strong language. no where else in the document do you get such strong language.  You mostly see words like deprived, and persecution.</p>
 		<p>While I'm going to talk a lot about people starting businesses and patent fights between academics, the people doing the fighting are fighting for the rights of everyone to be secure in their correspondence.</p>
 	</aside>
 </section>
 
-<section>
+<!-- <section>
 	<h3>encryption is about</h3>
 	<h1>privacy and verification</h1>
 	<aside class='notes'>
@@ -67,7 +68,7 @@
 		<p>verification is about detecting if a message has been tampered with, and identifying the source of the message</p>
 		<p>combine privacy and verification and you get security</p>
 	</aside>
-</section>
+</section> -->
 
 <section data-background-image=' img/lisa_computer.gif'>
 	<h1>&nbsp</h1>
@@ -873,7 +874,7 @@ openssl rsa -in  4096_private.dat -pubout > 4096.pub
 		<p>most everyone uses the same g and p values in diffie hellman</p>
 		<p>there are many possible numbers for G and P, but people correctly use the standard numbers for the different bit sizes</p>
 		<p>they are literally published as a standard, diffie hellman group 14 specifies 2048 bit values for g and p</p>
-		<p>this means means you can precompute all the values for X ahead of time</p>		
+		<p>this means means you can precompute all the values for X ahead of time</p>
 		<p>so when you see a public number in the wild you may have already computed the X value and saved it somewhere</p>
 	</aside>
 </section>
