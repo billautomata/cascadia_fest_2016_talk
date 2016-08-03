@@ -51,7 +51,7 @@
 		<div>against such interference or attacks.</div>
 	</q>
 	<aside class='notes'>
-		<p>My talk today is going to cover a bit of history, some math, and a fair bit of code examples</p>
+		<p>My talk today is going to cover a bit of history, some math, and a couple of code examples</p>
 		<p>the title of the talk is about how a part of the node core relates to human rights</p>
 		<p>here is a relevant passage from the UN declaration of human rights</p>
 		<p>there are a lot of versions of this in different rights declarations, europe has one, the us, canada has verbiage about this</p>
@@ -155,7 +155,7 @@
 		<p>Anyone who wants to work on cryptography goes and works for them.</p>
 		<p>They control the funding mechanisms for cryptography.</p>
 		<p>They can also delcare patent applications to be classified in the name of national security.</p>
-		<p>All the knowledge is kept by them.</p>
+		<p>All the knowledge about serious crypto is kept by them.</p>
 		<p>They built cryptosystems to be used by spies and the military.</p>
 		<p>If you wanted to work on these things you needed to agree with the philosophy behind those organizations.</p>
 	</aside>
@@ -178,7 +178,7 @@
 		<p>In 1975 we get DES.</p>
 		<p>DES is the first serious attempt at a widespread standard for data security.</p>
 		<p>It was successfully impelmented in chip, which made it easy to sell and use.</p>
-		<p>An example of a DES impelmentation is HBO used DES to scramble the signal when transmitting it over satellite.</p>
+		<p>HBO used DES to scramble the signal when transmitting it over satellite.</p>
 		<p>Even though the NSA was involved in the design of the cipher, the only real weakness in DES is that it shipped with a 56 bit key strength.</p>
 		<p>The designers wanted a 128 bit length key, but hardware concerns limited it to 64 bit, and government interference got it down to 56 bits.</p>
 	</aside>
@@ -253,8 +253,8 @@
 	<h1>secure telephony</h1>
 	<aside class='notes'>
 		<p>Big Mainframes needed secure communications.</p>
-		<p>They also needed a way to store information at rest.</p>
-		<p>Researchers with the assistance of the NSA created a block-cipher which took a fixed block of bytes, and performed multiple rounds of permutations.</p>
+		<p>They also needed a way to store information securely at rest.</p>
+		<p>IBM Researchers with the assistance of the NSA created a block-cipher which took a fixed block of bytes, and performed multiple rounds of permutations.</p>
 		<p>Specifically the permutations are multiple rounds of shuffling and substitution.</p>
 	</aside>
 </section>
@@ -294,9 +294,8 @@ assert.equal(plain_text, message)
 </code></pre>
 	<aside class='notes'>
 		<p>So back to DES... it was a hit, we still use a version of it today.</p>
-		<p>Even thoug hthe NSA reduced the key size in their recommendation, it was secure and widespread.</p>
+		<p>Even though the NSA reduced the key size in their recommendation, it was secure and widespread.</p>
 		<p>It put cryptography outside of the realm of the military and spies.</p>
-		<p>It is about to become an industry.</p>
 	</aside>
 </section>
 
@@ -358,23 +357,24 @@ assert.equal(plain_text, message)
 	<h3>solve for X</h3>
 	<h1>not easy</h1>
 	<aside class='notes'>
-		this becomes an issue when your equations look like this
-		that exponent really complicates matters
-		there isn't an efficient one-step solution to this problem, and that's what they leveraged
+		<p>this becomes an issue when your equations look like this</p>
+		<p>that exponent really complicates matters</p>
+		<p>there isn't an efficient one-step solution to this problem, and that's what they leveraged</p>
 	</aside>
 </section>
 
 <section>
-	<h5>diffie-hellman key exchange</h5>
+	<h5>diffie-hellman key generation</h5>
 	<h1>g<sup>x</sup> mod p = public</h1>
 	<h3>you are given G and P</h3>
 	<h3>choose a large X</h3>
 	<h3>it is your secret</h3>
 	<aside class='notes'>
-		this is the diffie hellman key exchange, the first really successful public key encryption algorithm
-		g and p are agreed upon by both parties, and eveyrone picks their own value for X and keeps it secret
-		then they run the X through the equation and publish the result, the public number
-		what is mod? I'll show you!
+		<p>this is the diffie hellman key genearation,</p>
+		<p>the first really successful public key encryption algorithm</p>
+		<p>g and p are agreed upon by both parties, and eveyrone picks their own value for X and keeps it secret</p>
+	  <p>then they run the X through the equation and publish the result, the public number</p>
+		<p>what is mod? I'll show you!</p>
 	</aside>
 </section>
 
@@ -434,7 +434,7 @@ alice_key.getGenerator()   // g
 alice_key.getPrivateKey()  // x
 alice_key.getPrime()       // p
 
-// shared secret
+// shared secret, c
 alice_key.computeSecret(bob.getPublicKey())
 </code></pre>
 	<aside class='notes'>
@@ -450,10 +450,9 @@ alice_key.computeSecret(bob.getPublicKey())
 	<h1>&nbsp</h1>
 	<h1>shared secret</h1>
 	<aside class='notes'>
+		<p>Asymmetric cryptography solves the problem of having to transmit your symmteric key to the other party.</p>
 	  <p>Diffie Hellman itself describe any encryption techniques.</p>
 		<p>It just lets two parties arrive at a shared number given each others public numbers.</p>
-		<p>Asymmetric cryptography solves the problem of having to transmit your symmteric key to the other party.</p>
-		<p>Your shared secret is the key you need to keep secret.</p>
 	</aside>
 </section>
 
@@ -524,14 +523,15 @@ alice_key.computeSecret(bob.getPublicKey())
 	<h1 style='color: rgb(33,66,255);'>public key (e,n)</h1>
 	<h1 style='color: rgb(255,66,33);'>private key (d)</h1>
 	<aside class='notes'>
-		This is the RSA algorithm.
-		RSA is different from diffie-hellman in that it doesn't rely on the shared secret model.
-		RSA specifies a key generation routine, which I'm not describing here.
-		RSA comes with encryption and decryption operations.
-		You would just generate a random string of data.
-		Then you encrypt that small bit of data using the RSA public key of your recipient.
-		That random string of data is the key to your symmetric cipher.
-		The recipient recovers the symmetric key using their private key, and decrypts the data packet.
+		<p>This is the RSA algorithm.</p>
+		<p>RSA is different from diffie-hellman in that it doesn't rely on the shared secret model.</p>
+		<p>RSA specifies a key generation routine, which I'm not describing here.</p>
+		<p>RSA comes with encryption and decryption operations.</p>
+		<p>To use RSA you just generates a random string of data.</p>
+		<p>That random string is your symmetric key.</p>
+		<p>Then you encrypt that string using the RSA public key of your recipient.</p>
+		<p>That random string of data is the key to your symmetric cipher.</p>
+		<p>The recipient recovers the symmetric key using their private key, and decrypts the data packet.</p>
 	</aside>
 </section>
 
@@ -559,11 +559,11 @@ alice_key.computeSecret(bob.getPublicKey())
 	</div>
 </div>
   <aside class='notes'>
-		Laid out like this you can see why one is called asymmetric.
-		The most encounterable implementation of asymmetric crypto is in email.
-		You would take someone else's public key and encrypt a message only they could decrypt.
-		When you do that, if you still want to make the message readable by you - say in your sent folder - you encrypt two copies.  One with their public key, and one with yours.
-		The recipient takes their private key and deciphers the data to recover it.
+		<p>Laid out like this you can see why one is called asymmetric.</p>
+		<p>The a noticeable implementation of asymmetric crypto is in email.</p>
+		<p>You would take someone else's public key and encrypt a message only they could decrypt.</p>
+		<p>When you do that, if you still want to make the message readable by you - say in your sent folder - you encrypt two copies.  One with their public key, and one with yours.</p>
+		<p>The recipient takes their private key and deciphers the data to recover it.</p>
 	</aside>
 </section>
 
@@ -579,11 +579,11 @@ alice_key.computeSecret(bob.getPublicKey())
 		<h3 style='background-color: rgb(66,255,66); color: black;'>plain text</h3>
 	</div>
 	<aside class='notes'>
-		Another feature of RSA is the signature and verification routines.
-		Sign and verify are the reverse of what I just described.
-		Instead of you encrypting a message for me using my public key, I encrypt a message for you using my private key.
-		You then verify I sent the message by decrypting the signature with my public key.
-		Only someone with my private key could make a signature that is verified with my public key.
+		<p>Another feature of RSA is the signature and verification routines.</p>
+		<p>Sign and verify are the reverse of what I just described.</p>
+		<p>Instead of you encrypting a message for me using my public key, I encrypt a message for you using my private key.</p>
+		<p>You then verify I sent the message by decrypting the signature with my public key.</p>
+	  <p>Only someone with my private key could make a signature that is verified with my public key.</p>
 	</aside>
 </section>
 
@@ -605,13 +605,13 @@ verify.update(message)
 
 assert.equal(verify.verify(public_key, signature, 'hex'), true)</code></pre>
 	<aside class='notes'>
-		Here is what I just talked about as code in nodejs.
-		You load the keys, from disk.  You have a message string.
-		You create a sign object and update the object with the message,
-		you call the sign method and pass your private key
-		You send your message, your signature, and your public key to the other party
-		the other party can create a verify object, update it with the message
-		then verify the message using the public key and the signature
+		<p>Here is what I just talked about as code in nodejs.</p>
+		<p>You load the keys, from disk.  You have a message string.</p>
+		<!-- <p>You create a sign object and update the object with the message,</p> -->
+		<p>you call the sign method and pass your private key</p>
+		<p>You send your message, your signature, and your public key to the other party</p>
+		<!-- <p>the other party can create a verify object, update it with the message</p> -->
+		<p>then verify the message using the public key and the signature</p>
 	</aside>
 </section>
 
@@ -857,7 +857,7 @@ openssl rsa -in  4096_private.dat -pubout > 4096.pub
 
 <section>
 	<h1>cracking DH</h1>
-	<h5>diffie-hellman key exchange</h5>
+	<h5>diffie-hellman key generation</h5>
 	<h1><span style='color: rgb(33,255,66);'>g</span><sup style='color: rgb(255,33,66);'>x</sup> mod <span style='color: rgb(33,255,66);'>p</span> = public</h1>
 	<aside class='notes'>
 		<p>Diffie Hellman is super easy to crack in that all you have to do is guess X</p>
@@ -866,6 +866,7 @@ openssl rsa -in  4096_private.dat -pubout > 4096.pub
 </section>
 
 <section>
+	<h6>diffie-hellman key generat</h6>
 	<h1><span style='color: rgb(33,255,66);'>g</span><sup style='color: rgb(255,33,66);'>1</sup> mod <span style='color: rgb(33,255,66);'>p</span> = 998</h1>
 	<h1><span style='color: rgb(33,255,66);'>g</span><sup style='color: rgb(255,33,66);'>2</sup> mod <span style='color: rgb(33,255,66);'>p</span> = 861</h1>
 	<h1><span style='color: rgb(33,255,66);'>g</span><sup style='color: rgb(255,33,66);'>3</sup> mod <span style='color: rgb(33,255,66);'>p</span> = 320</h1>
