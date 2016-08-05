@@ -807,7 +807,8 @@ openssl rsa -in  4096_private.dat -pubout > 4096.pub
 		<p>If it had been an updated model the implementation would have been resistant to that attack</p>
 		<p>Other places are pushing for logging that neturalizes security altogether.</p>
 		<p>Snoopers Charter in the UK would require you to log all your sessions, every piece of information for every handshake, did you download an icon?  That's a unique session key and that needs to be logged and stored for half a year.</p>
-		<p>In Russia the new law is a year of retention and they are seizing hardware of vpn providers.</p>
+		<p>What this does is shifts the overwhelming costs of storing that information on to the ISPs instead of the intelligence agencies</p>
+		<p>In Russia the new law requires a year of retention and they are seizing hardware of vpn providers.</p>
 		<p></p>
 	</aside>
 </section>
@@ -816,7 +817,7 @@ openssl rsa -in  4096_private.dat -pubout > 4096.pub
 	<h1>they are watching</h1>
 	<aside class='notes'>
 		<p>This is what we are up against.</p>
-		<p>It is pervasive surveillance.</p>
+		<p>It is pervasive surveillance, every packet, especially every plaintext packet</p>
 		<p>they will build arrays of antennas in backwater nowheres just to get better coverage of the sky</p>
 	</aside>
 </section>
@@ -849,9 +850,9 @@ openssl rsa -in  4096_private.dat -pubout > 4096.pub
 		<p>this is a machine built by the EFF to demonstrate how cheap it would be to crack DES</p>
 		<p>this is how you attack symmteric cryptography, with custom hardware</p>
 		<p>the hardware searches the key space and compares the output to a set of parameters</p>
-		<p>if you are expecting to see ascii text you would pipe the output to a detector software and review all the tries that had only ascii</p>
-		<p>in the repo for this talk I have a DES cracking routine that will do 30,000 keys per second on my fast desktop</p>
-		<p>this device did 90 billion</p>
+		<p>if you are expecting to see ascii text you would pipe the output to a detector software and review all the decryption tries that resulted in only ascii</p>
+		<p>my fast desktop can do 30,000 keys a second</p>
+		<p>this device did 90 billion a second</p>
 	</aside>
 </section>
 
@@ -860,7 +861,7 @@ openssl rsa -in  4096_private.dat -pubout > 4096.pub
 	<h5>diffie-hellman key generation</h5>
 	<h1><span style='color: rgb(33,255,66);'>g</span><sup style='color: rgb(255,33,66);'>x</sup> mod <span style='color: rgb(33,255,66);'>p</span> = public</h1>
 	<aside class='notes'>
-		<p>Diffie Hellman is super easy to crack in that all you have to do is guess X, you have a persons public number, g and p</p>
+		<p>Diffie Hellman is super straight forward to crack in that all you have to do is guess X, you are provided a persons public number, also g and p</p>
 		<p>You verify you got X correct by running the equation, and if you get the public number you got X correct</p>
 	</aside>
 </section>
