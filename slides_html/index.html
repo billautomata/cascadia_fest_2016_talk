@@ -455,9 +455,10 @@ alice_key.computeSecret(bob.getPublicKey())
 <section data-background-image='img/cat_fire.gif'>
 	<h1></h1>
 	<aside class='notes'>
-		<p>Asymmetric cryptography solves the problem of having to transmit your symmteric key to the other party, at least in the clear.</p>
+		<p>Asymmetric cryptography solves the problem of having to transmit and store your symmetric key in multiple places.</p>
 		<p>Your shared secret is the key to your symmetric cipher.</p>
-		<p>All modern cryptosystems are combinations of symmetric and asymmteric crypto.</p>
+		<p>Almost all modern cryptosystems are combinations of symmetric and asymmteric crypto.</p>
+		<p>You use asymmetric crypto to negotiate symmetric keys, then you use symmetric crypto to encrypt the data stream.</p>
 	</aside>
 </section>
 
@@ -493,14 +494,15 @@ alice_key.computeSecret(bob.getPublicKey())
 	<p>They felt they had a problem.</p>
 		<p>Customers could not understand their product.</p>
 		<p>Symmteric encryption is easy, a key locks and unlocks a door.</p>
+		<p>You can give someone the key and take it from them.</p>
+		<p>You can change the lock</p>
 	  <p>Asymmetric encryption is college level math.</p>
 		<p>There are mulitple keys, and multiple steps to using them.</p>
 		<p>Your key becomes a different key when used in someone else's lock.</p>
 		<p>Everyone shares a different secret.</p>
 		<p>RSA wanted to simpifly things.  Put it on a chip.  Ship it in a box.</p>
 		<p>It didn't work.  </p>
-		<p>It would have been one of the most complicated single chip design by a factor of 10</p>
-		<p>it came off the line and didn't work at all</p>
+		<p>they designed it, built it, it came off the line and didn't work at all</p>
 	</aside>
 </section>
 
@@ -508,7 +510,7 @@ alice_key.computeSecret(bob.getPublicKey())
 	<h1>1985</h1>
 	<h1>software company</h1>
 	<aside class='notes'>
-		They shifted away from chip making and focused on licensing the
+		They pivoted away from chip making and focused on licensing the
 		technology in other products.  Your email would be protected by RSA and
 		there would be a sticker on the box for your email program, RSA Inside.
 	</aside>
@@ -527,8 +529,7 @@ alice_key.computeSecret(bob.getPublicKey())
 		<p>To use RSA you just generates a random string of data.</p>
 		<p>That random string is your symmetric key.</p>
 		<p>Then you encrypt that string using the RSA public key of your recipient.</p>
-		<p>That random string of data is the key to your symmetric cipher.</p>
-		<p>The recipient recovers the symmetric key using their private key, and decrypts the data packet.</p>
+		<p>The recipient recovers the symmetric key using their private key</p>
 	</aside>
 </section>
 
@@ -557,7 +558,7 @@ alice_key.computeSecret(bob.getPublicKey())
 </div>
   <aside class='notes'>
 		<p>Laid out like this you can see why one is called asymmetric.</p>
-		<p>Where you would most often find visible asymmetric crypto is in email.</p>
+		<p>Email is commonly protected by asymmetric crypto</p>
 		<p>You would take someone else's public key and encrypt a message only they could decrypt.</p>
 		<p>The recipient takes their private key and deciphers the data to recover it.</p>
 		<p>When you do that, if you still want to make the message readable by you - say in your sent folder - you encrypt two copies.  One with their public key, and one with yours.</p>
@@ -672,6 +673,7 @@ openssl rsa -in  4096_private.dat -pubout > 4096.pub
 		<p>we're kind of blasting through the timeline here because you would not believe how long it took for them to write and release this software</p>
 		<p>but pgp version 1.0 released using a combination of RSA and a symmetric cipher called bassomatic</p>
 		<p>yes from the saturday night live sketch</p>
+		<p>note, don't invent your own ciphers, you can't do a good job, use someone else's ciphers</p>
 	</aside>
 </section>
 
@@ -688,14 +690,14 @@ openssl rsa -in  4096_private.dat -pubout > 4096.pub
 <section data-background-image='img/bart_lisa_fighting.gif'>
 	<h1>1993</h1>
 	<aside class='notes'>
-		<p>in 1993 RSA reports the PGP creators to the us export and customs for violating the rsa patent</p>
+		<p>in 1993 RSA reports the PGP creators to the us export and customs office for violating the rsa patent</p>
 	</aside>
 </section>
 
 <section data-background-image='img/homer_beehive_smile.gif'>
 	<h1></h1>
 	<aside class='notes'>
-		<p>the pgp creator then sells pgp to a company that owns a license for RSA neutralizing that problem</p>
+		<p>the pgp creator neutralizes the problem by selling pgp to a company that owns a license for RSA</p>
 	</aside>
 </section>
 
@@ -704,7 +706,7 @@ openssl rsa -in  4096_private.dat -pubout > 4096.pub
 	  <p>but just a month later the San Jose customs office opens up a formal criminal investigation</p>
 		<p>regarding the illegal export of a munitions without a license</p>
 		<p>then in 1997 the case closes with no charges filed</p>
-		<p>it's all just threats and intimidation</p>
+		<p>it's 4 years of threats and intimidation</p>
 		<p>I had a hard time researching hard concrete details about this talk because there is very little in the way of publicly available court proceedings</p>
 		<p>You can't find a listing of what was and wasn't considered illegal at the time because it was entirely at the discretion of opaque government entities that would swing back and forth their interpretation of the current state of affairs</p>
 		<p>the law was being practiced through secret letters and memos</p>
@@ -743,7 +745,7 @@ openssl rsa -in  4096_private.dat -pubout > 4096.pub
 	<h1>nope</h1>
 	<aside class='notes'>
 		<p>nobody wanted on this train, not commerce, not the public</p>
-		<p>not even after the government said consumers could choose who stored their keys</p>
+		<p>not even after the government said consumers could choose who held their keys</p>
 		<p>the big idea was that banks would keep them</p>
 		<p>imagine if your API services involved contacting a bank with every transaction</p>
 	</aside>
@@ -948,16 +950,16 @@ openssl rsa -in  4096_private.dat -pubout > 4096.pub
 	<h1>&nbsp</h1>
 	<h1>&nbsp</h1>
 	<aside class='notes'>
-		<p>I'm not sure really.  I just kind of wanted to have this slide and linger a bit...</p>
+		<p>I'm not sure what tomorrow holds really.  I just kind of wanted to have this slide and linger a bit...</p>
 		<p>Quantum Computers are a real thing and they will eventually crack meaningful RSA keys</p>
 		<p>Bad guys are collecting all the traffic they see and waiting for the day the skeleton key comes along that opens it up.</p>
 		<p>An email from 10 years ago is still relevant if you are still mad about the thing that happened 10 years ago</p>
 		<p>All you can do is try to not be an easy target.</p>
 		<p>most real world attacks are not sophisticated</p>
-		<p>unpatched servers, someone pops root, grabs some dot env files now they have your aws keys</p>
+		<p>unpatched servers, someone pops root, grabs some dot env files now they have your amazon keys</p>
 		<p>At the lowest level it is someone's crappy job to hack you.</p>
-		<p>Some contractor has to pour over your data and find your alternate email address and world of warcraft username</p>
-		<p>If you make it a little bit harder for them, they will give up</p>
+		<p>Some contractor has to pour over your data and find your email address and steal all your pokemon go effort</p>
+		<p>If you make it a little bit harder for them, they will move on</p>
 		<p>If literally everyone used Tor and PGP and OTR Messaging our intelligence services would invest more money in human resources instead of mass surveillance.</p>
 		<p>If it wasn't so easy for them to scoop up everything and call it a good day's work they would have better intelligence instead of the deluge of plaintext we provide them</p>
 	</aside>
